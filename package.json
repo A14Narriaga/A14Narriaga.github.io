@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "npx ng build --base-href \"https://a14narriaga.github.io\" && npx ngh --dir dist/A14Narriaga"
   },
   "private": true,
   "dependencies": {
