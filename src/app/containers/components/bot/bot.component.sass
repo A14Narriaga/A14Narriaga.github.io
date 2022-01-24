@@ -1,0 +1,119 @@
+.bot
+  width: 21rem
+  height: 32.5rem
+  background-color: var(--background-chat-color)
+  border-radius: 0.5rem
+  header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 1rem 1.5rem
+    border-radius: 0.5rem 0.5rem 0 0
+    background-color: var(--card-color)
+    margin-bottom: 1rem
+    .content
+      display: flex
+      align-items: center
+      img
+        width: 3.5rem
+        border-radius: 100%
+        border: 2px solid var(--text-color)
+        margin-right: 1rem
+      .info
+        line-height: 1.2
+        .title
+          font-weight: 500
+          font-size: 1.1rem
+        .description
+          color: var(--sub-text-color)
+          font-size: 0.9rem
+    i
+      font-size: 1.2rem
+  main
+    padding: 0 1rem
+    overflow-y: scroll
+    height: 25rem
+    font-size: 0.95rem
+    .bot-msg
+      display: flex
+      justify-content: flex-start
+      align-items: center
+      margin-bottom: 0.3rem
+      span
+        background-color: var(--card-color)
+        padding: 0.3rem 0.5rem
+        border-radius: 0.5rem
+      .link
+        border: 2px solid var(--text-color)
+        font-weight: bold
+        i
+          margin-left: 0.3rem
+        &:hover
+          cursor: pointer
+          color: var(--primary-color)
+          i
+            color: var(--primary-color)
+    .usr-msg
+      display: flex
+      justify-content: flex-end
+      align-items: center
+      margin-bottom: 0.3rem
+      span
+        background-color: var(--usr-msg-color)
+        padding: 0.3rem 0.5rem
+        border-radius: 0.5rem
+    .usr-opt
+      display: flex
+      justify-content: center
+      align-items: center
+      margin-bottom: 0.3rem
+      background-color: var(--usr-msg-color)
+      padding: 0.3rem 0.5rem
+      border-radius: 0.5rem
+      border: 2px solid var(--text-color)
+      &:hover
+        cursor: pointer
+        font-weight: 500
+
+.botMsg
+  width: 21rem
+  height: 32.5rem
+  background-color: var(--background-chat-color)
+  border-radius: 0.5rem
+  header
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    padding: 1.5rem 0rem
+    border-radius: 0.5rem 0.5rem 0 0
+    background-color: var(--card-color)
+    line-height: 1.1
+    img
+      width: 3.6rem
+      border-radius: 100%
+      border: 2px solid var(--text-color)
+      margin-bottom: 0.5rem
+    .description
+      color: var(--sub-text-color)
+      font-size: 0.9rem
+  main
+    padding: 1.5rem
+    form
+      display: flex
+      flex-direction: column
+      gap: 0.7rem
+      input, textarea
+        background-color: var(--card-color)
+        padding: 0.5rem
+        border-radius: 0.3rem
+      textarea
+        height: 7.8rem
+        resize: none
+  footer
+    button
+      background-color: var(--card-color)
+      width: 100%
+      padding: 0.7rem 0
+      font-size: 1.2rem
+      border-radius: 0 0 0.5rem 0.5rem

@@ -1,0 +1,54 @@
+<section class="bot">
+  <header>
+    <div class="content">
+      <img src="assets/images/profile/P1.jpg" alt="" />
+      <div class="info">
+        <p class="title">Alan Bot</p>
+        <p class="description">
+          {{ writting ? "Escribiendo..." : "!Hazme una pregunta!" }}
+        </p>
+      </div>
+    </div>
+    <i class="fas fa-times"></i>
+  </header>
+  <main #container>
+    <p
+      *ngFor="let c of conversation"
+      [class]="c.bot ? 'bot-msg' : 'usr-msg'"
+      (click)="executeBotOpt(c.msg)"
+    >
+      <span [ngClass]="{ link: c.icon }">
+        {{ c.msg }}
+        <i class="fas fa-{{ c.icon }}"></i>
+      </span>
+    </p>
+    <ng-container *ngIf="!writting">
+      <p *ngFor="let c of options" class="usr-opt" (click)="addMessages(c)">
+        <span>
+          {{ c.msg }}
+        </span>
+      </p>
+    </ng-container>
+  </main>
+</section>
+
+<br />
+
+<section class="botMsg">
+  <header>
+    <img src="assets/images/profile/P1.jpg" alt="" />
+    <p class="title">¡Hola !</p>
+    <p class="description">Te contactare pronto</p>
+  </header>
+  <main>
+    <form>
+      <input type="text" placeholder="Correo" />
+      <input type="text" placeholder="Nombre" />
+      <input type="text" placeholder="Asunto" />
+      <textarea placeholder="Mensaje"></textarea>
+    </form>
+  </main>
+  <footer>
+    <button>{{ true ? "Enviar" : "Regresar" }}</button>
+  </footer>
+</section>
