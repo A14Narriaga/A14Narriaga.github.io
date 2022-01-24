@@ -1,15 +1,12 @@
-<section class="bot">
+<section class="bot" *ngIf="openBot">
   <header>
-    <div class="content">
-      <img src="assets/images/profile/P1.jpg" alt="" />
-      <div class="info">
-        <p class="title">Alan Bot</p>
-        <p class="description">
-          {{ writting ? "Escribiendo..." : "!Hazme una pregunta!" }}
-        </p>
-      </div>
+    <img src="assets/images/profile/P1.jpg" alt="" />
+    <div class="info">
+      <p class="title">Alan Bot</p>
+      <p class="description">
+        {{ writting ? "Escribiendo..." : "!Hazme una pregunta!" }}
+      </p>
     </div>
-    <i class="fas fa-times"></i>
   </header>
   <main #container>
     <p
@@ -32,9 +29,7 @@
   </main>
 </section>
 
-<br />
-
-<section class="botMsg">
+<section class="botMsg" *ngIf="msgView">
   <header>
     <img src="assets/images/profile/P1.jpg" alt="" />
     <p class="title">¡Hola !</p>
@@ -49,6 +44,15 @@
     </form>
   </main>
   <footer>
-    <button>{{ true ? "Enviar" : "Regresar" }}</button>
+    <button (click)="send()">Enviar</button>
   </footer>
+</section>
+
+<section class="floating-btn">
+  <i
+    class="{{ openBot ? 'far fa-times-circle' : 'far fa-comment' }}"
+    (click)="
+      this.msgView ? (this.msgView = false) : (this.openBot = !this.openBot)
+    "
+  ></i>
 </section>

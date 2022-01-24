@@ -22,6 +22,8 @@ export class BotComponent {
     { bot: true, msg: 'Soy Alan Bot 🤖', icon: '' },
     { bot: true, msg: '¿Comó puedo ayudarte?', icon: '' },
   ]
+  msgView = false;
+  openBot = false;
 
   executeBotOpt(key: string): void {
     switch (key) {
@@ -29,6 +31,7 @@ export class BotComponent {
         window.open('assets/documents/CV_Arriaga_Alan.pdf', '_blank');
         break;
       case 'Enviar mensaje':
+        this.msgView = true
         break;
     }
   }
@@ -70,6 +73,11 @@ export class BotComponent {
       const container = this.refContainer.nativeElement;
       container.scrollTop = container.scrollHeight;
     }, 0);
+  }
+
+  send() {
+    console.log('Send form data');
+
   }
 
 }
