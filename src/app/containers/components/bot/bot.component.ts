@@ -26,17 +26,6 @@ export class BotComponent {
   msgView = false;
   openBot = false;
 
-  executeBotOpt(key: string): void {
-    switch (key) {
-      case 'Alan CV':
-        window.open('assets/documents/CV_Arriaga_Alan.pdf', '_blank');
-        break;
-      case 'Enviar mensaje':
-        this.msgView = true
-        break;
-    }
-  }
-
   setScrollToButton() {
     setTimeout(() => {
       const container = this.refContainer.nativeElement;
@@ -50,6 +39,14 @@ export class BotComponent {
     await new Promise(resolve => setTimeout(resolve, 1500));
   }
 
+  executeBotOpt(key: string): void {
+    switch (key) {
+      case 'Alan CV':
+        window.open('assets/documents/CV_Arriaga_Alan.pdf', '_blank');
+        break;
+    }
+  }
+
   async addMessages(opt: any) {
     this.options.unshift({ bot: false, msg: 'No, gracias 😅', icon: '' });
     this.options = this.userOptions.filter(uo => uo.msg !== opt.msg)
@@ -57,15 +54,17 @@ export class BotComponent {
     this.writting = true;
     switch (opt.msg) {
       case '¡Solo quiero saludar 🖐!':
-        await this.addMessage('¡Espero te encuentres bien 😊!', '');
         await this.addMessage('¡Gracias por saludar y visitar el sitio 😋!', '');
+        await this.addMessage('¡Espero te encuentres bien 😊!', '');
         await this.addMessage('¿Puedo ayudarte con algo más?', '');
         break;
       case '¡Me gustaría contactar a Alan!':
         await this.addMessage('¡Perfecto!', '');
         await this.addMessage('¿Te gustaría enviarle un mensaje para que puedan charlar?', '');
-        await this.addMessage('Enviar mensaje', 'envelope');
-        await this.addMessage('¿Puedo hacer algo más por ti?', '');
+        this.options = [
+          { bot: false, msg: 'Si', icon: '' },
+          { bot: false, msg: 'No', icon: '' },
+        ];
         break;
       case '¡Me gustaría ver el CV de Alan!':
         await this.addMessage('¡Claro!', '');
@@ -81,19 +80,45 @@ export class BotComponent {
         this.openBot = false;
         this.conversation = [...this.welcome];
         return;
+      case 'Si':
+        this.msgView = true
+        this.writting = false;
+        return;
+      case 'No':
+        await this.addMessage('Bueno, será en otra ocasión 😢', '');
+        await this.addMessage('¿Puedo hacer algo más por ti?', '');
+        this.options = this.userOptions.filter(uo => uo.msg !== '¡Me gustaría contactar a Alan!');
+        break;
     }
     this.writting = false;
     this.setScrollToButton();
   }
 
-  handleBot() {
-    this.msgView ? (this.msgView = false) : (this.openBot = !this.openBot)
-    if (this.openBot) this.setScrollToButton();
+  async handleBot() {
+    if (this.msgView) {
+      this.msgView = false
+      this.writting = true;
+      await this.addMessage('¿Te arrepentiste? 😖', '');
+      await this.addMessage('Puedes intentarlo de nuevo cuando gustes', '');
+      this.options = this.userOptions.filter(uo => uo.msg !== '¡Me gustaría contactar a Alan!');
+      await this.addMessage('¿Hay algo más que pueda hacer por ti?', '');
+      this.writting = false;
+      this.setScrollToButton();
+    } else {
+      this.openBot = !this.openBot
+      if (this.openBot) this.setScrollToButton();
+    }
   }
 
-  send() {
-    console.log('Send form data');
+  async send() {
     this.msgView = false;
+    this.writting = true;
+    await this.addMessage('He enviado tu mensaje a Alan', '');
+    await this.addMessage('Espero se comunique contigo pronto 🤟', '');
+    await this.addMessage('¿Puedo hacer algo más por ti?', '');
+    this.options = this.userOptions.filter(uo => uo.msg !== '¡Me gustaría contactar a Alan!');
+    this.writting = false;
+    this.setScrollToButton();
   }
 
 }

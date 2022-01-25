@@ -32,7 +32,7 @@
 <section class="botMsg" *ngIf="msgView">
   <header>
     <img src="assets/images/profile/P1.jpg" alt="" />
-    <p class="title">¡Hola !</p>
+    <p class="title">¡Hola!</p>
     <p class="description">Te contactare pronto</p>
   </header>
   <main>
@@ -48,9 +48,11 @@
   </footer>
 </section>
 
-<section class="floating-btn{{ openBot ? '-close' : '' }}">
-  <i
-    class="{{ openBot ? 'far fa-times-circle' : 'far fa-comment' }}"
-    (click)="handleBot()"
-  ></i>
-</section>
+<button
+  class="floating-btn{{ openBot ? '-close' : '' }}"
+  [disabled]="writting"
+  (click)="handleBot()"
+  [ngClass]="{'disabled': writting}"
+>
+  <i class="{{ openBot ? 'far fa-times-circle' : 'far fa-comment' }}"></i>
+</button>

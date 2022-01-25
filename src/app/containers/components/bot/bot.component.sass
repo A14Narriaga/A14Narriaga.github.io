@@ -14,6 +14,7 @@
     border-radius: 0.5rem 0.5rem 0 0
     background-color: var(--card-color)
     margin-bottom: 1rem
+    height: 16%
     img
       width: 3.5rem
       border-radius: 100%
@@ -30,9 +31,9 @@
     i
       font-size: 1.2rem
   main
+    height: calc( 84% - 2rem )
     padding: 0 1rem
     overflow-y: scroll
-    height: 25rem
     font-size: 1rem
     .bot-msg
       display: flex
@@ -70,10 +71,10 @@
       background-color: var(--usr-msg-color)
       padding: 0.3rem 0.5rem
       border-radius: 0.5rem
-      border: 2px solid var(--text-color)
+      opacity: 0.7
       &:hover
         cursor: pointer
-        font-weight: 500
+        opacity: 1
 
 .botMsg
   position: fixed
@@ -89,12 +90,12 @@
     justify-content: center
     align-items: center
     flex-direction: column
-    padding: 1.5rem 0rem
     border-radius: 0.5rem 0.5rem 0 0
     background-color: var(--card-color)
     line-height: 1.1
+    height: 25%
     img
-      width: 3.6rem
+      width: 3.8rem
       border-radius: 100%
       border: 2px solid var(--text-color)
       margin-bottom: 0.5rem
@@ -103,7 +104,9 @@
       font-size: 0.9rem
   main
     padding: 1.5rem
+    height: 65%
     form
+      height: 100%
       display: flex
       flex-direction: column
       gap: 0.7rem
@@ -112,13 +115,17 @@
         padding: 0.5rem
         border-radius: 0.3rem
       textarea
-        height: 8rem
+        height: 100%
         resize: none
   footer
+    height: 10%
+    display: flex
+    justify-content: center
+    align-items: center
     button
       background-color: var(--card-color)
       width: 100%
-      padding: 0.7rem 0
+      height: 100%
       font-size: 1.1rem
       letter-spacing: 1px
       font-weight: 500
@@ -131,15 +138,21 @@
   position: fixed
   bottom: 3rem
   right: 3rem
+  background-color: var(--primary-color)
+  padding: 1rem
+  border-radius: 100%
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset
+  display: flex
+  justify-content: center
+  align-items: center
   i
-    background-color: var(--primary-color)
     font-size: 1.5rem
-    padding: 1rem
-    border-radius: 100%
     color: var(--card-color)
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset
   &:hover
     cursor: pointer
+
+.disabled
+  background-color: var(--primary-disabled-color)
 
 @media (max-width: 490px)
   .bot, .botMsg
@@ -147,23 +160,17 @@
     height: 100%
     bottom: 0rem
     right: 0rem
-  .bot
-    main
-      height: 80%
-  .botMsg
-    main
-      form
-        textarea
-          height: 15.2rem
   .floating-btn
-    bottom: 1rem
-    right: 1rem
+    bottom: 1.5rem
+    right: 1.5rem
   .floating-btn-close
     top: 1.5rem
     right: 1.5rem
     height: 3.5rem
+    box-shadow: none
+    background-color: #00000000
     i
-      padding: 0.5rem
       color: var(--text-color)
-      box-shadow: none
-      background-color: var(--card-color)
+  .disabled
+    i
+      color: var(--sub-text-color)
