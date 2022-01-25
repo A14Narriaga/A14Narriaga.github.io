@@ -51,8 +51,6 @@
 <section class="floating-btn{{ openBot ? '-close' : '' }}">
   <i
     class="{{ openBot ? 'far fa-times-circle' : 'far fa-comment' }}"
-    (click)="
-      this.msgView ? (this.msgView = false) : (this.openBot = !this.openBot)
-    "
+    (click)="handleBot()"
   ></i>
 </section>

@@ -20,20 +20,20 @@
       border: 2px solid var(--text-color)
       margin-right: 1rem
     .info
-      line-height: 1.2
+      line-height: 1.1
       .title
         font-weight: 500
-        font-size: 1.1rem
+        font-size: 1.2rem
       .description
         color: var(--sub-text-color)
-        font-size: 0.9rem
+        font-size: 1rem
     i
       font-size: 1.2rem
   main
     padding: 0 1rem
     overflow-y: scroll
     height: 25rem
-    font-size: 0.95rem
+    font-size: 1rem
     .bot-msg
       display: flex
       justify-content: flex-start
@@ -144,7 +144,7 @@
 @media (max-width: 490px)
   .bot, .botMsg
     width: 100vw
-    height: 100vh
+    height: 100%
     bottom: 0rem
     right: 0rem
   .bot
@@ -159,10 +159,11 @@
     bottom: 1rem
     right: 1rem
   .floating-btn-close
-    top: 1rem
-    right: 1rem
+    top: 1.5rem
+    right: 1.5rem
     height: 3.5rem
     i
+      padding: 0.5rem
       color: var(--text-color)
-      background-color: var(--card-color)
       box-shadow: none
+      background-color: var(--card-color)
