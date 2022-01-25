@@ -127,7 +127,7 @@
         color: var(--primary-color)
         cursor: pointer
 
-.floating-btn
+.floating-btn, .floating-btn-close
   position: fixed
   bottom: 3rem
   right: 3rem
@@ -140,3 +140,29 @@
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset
   &:hover
     cursor: pointer
+
+@media (max-width: 490px)
+  .bot, .botMsg
+    width: 100vw
+    height: 100vh
+    bottom: 0rem
+    right: 0rem
+  .bot
+    main
+      height: 80%
+  .botMsg
+    main
+      form
+        textarea
+          height: 15.2rem
+  .floating-btn
+    bottom: 1rem
+    right: 1rem
+  .floating-btn-close
+    top: 1rem
+    right: 1rem
+    height: 3.5rem
+    i
+      color: var(--text-color)
+      background-color: var(--card-color)
+      box-shadow: none
