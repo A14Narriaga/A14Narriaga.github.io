@@ -6,6 +6,7 @@ import { BotComponent } from './containers/components/bot/bot.component';
 import { HomeComponent } from './containers/page/home/home.component';
 import { CardProjectComponent } from './containers/components/card-project/card-project.component';
 import { CardCertificationComponent } from './containers/components/card-certification/card-certification.component';
+import { LoaderComponent } from './containers/components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { CardCertificationComponent } from './containers/components/card-certifi
     BotComponent,
     HomeComponent,
     CardProjectComponent,
-    CardCertificationComponent
+    CardCertificationComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
