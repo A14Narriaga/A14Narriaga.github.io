@@ -11,6 +11,7 @@ import { SkillComponent } from './containers/components/skill/skill.component';
 import { CardExperienceComponent } from './containers/components/card-experience/card-experience.component';
 import { CardBlogComponent } from './containers/components/card-blog/card-blog.component';
 import { CodeComponent } from './containers/components/code/code.component';
+import { NavbarComponent } from './containers/components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CodeComponent } from './containers/components/code/code.component';
     SkillComponent,
     CardExperienceComponent,
     CardBlogComponent,
-    CodeComponent
+    CodeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
