@@ -1,0 +1,18 @@
+<section class="card">
+  <header>
+    <p>{{ "Codigo de prueba" | uppercase }}</p>
+    <i class="far fa-clone"></i>
+  </header>
+  <main>
+    <p *ngFor="let line of code; let i = index">
+      <span class="num">{{ i + 1 }}</span>
+      <span
+        *ngFor="let word of line.split(' ')"
+        class="line"
+        [class]="color.get(word)"
+      >
+        {{ word }}
+      </span>
+    </p>
+  </main>
+</section>

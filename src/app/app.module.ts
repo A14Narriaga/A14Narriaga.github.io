@@ -10,6 +10,7 @@ import { LoaderComponent } from './containers/components/loader/loader.component
 import { SkillComponent } from './containers/components/skill/skill.component';
 import { CardExperienceComponent } from './containers/components/card-experience/card-experience.component';
 import { CardBlogComponent } from './containers/components/card-blog/card-blog.component';
+import { CodeComponent } from './containers/components/code/code.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CardBlogComponent } from './containers/components/card-blog/card-blog.c
     LoaderComponent,
     SkillComponent,
     CardExperienceComponent,
-    CardBlogComponent
+    CardBlogComponent,
+    CodeComponent
   ],
   imports: [
     BrowserModule,
