@@ -9,6 +9,7 @@ import { CardCertificationComponent } from './containers/components/card-certifi
 import { LoaderComponent } from './containers/components/loader/loader.component';
 import { SkillComponent } from './containers/components/skill/skill.component';
 import { CardExperienceComponent } from './containers/components/card-experience/card-experience.component';
+import { CardBlogComponent } from './containers/components/card-blog/card-blog.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CardExperienceComponent } from './containers/components/card-experience
     CardCertificationComponent,
     LoaderComponent,
     SkillComponent,
-    CardExperienceComponent
+    CardExperienceComponent,
+    CardBlogComponent
   ],
   imports: [
     BrowserModule,
