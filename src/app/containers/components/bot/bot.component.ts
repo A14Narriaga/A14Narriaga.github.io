@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, OnInit, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-bot',
@@ -25,6 +25,7 @@ export class BotComponent {
   options = this.userOptions;
   msgView = false;
   openBot = false;
+  botInAnim = true;
 
   setScrollToButton() {
     setTimeout(() => {
@@ -77,8 +78,7 @@ export class BotComponent {
         await this.addMessage('Espero haberte ayudado', '');
         await this.addMessage('Hasta pronto 👋', '');
         this.writting = false;
-        this.openBot = false;
-        this.conversation = [...this.welcome];
+        this.closeBot(true)
         return;
       case 'Si':
         this.msgView = true
@@ -94,6 +94,15 @@ export class BotComponent {
     this.setScrollToButton();
   }
 
+  closeBot = (reset = false) => {
+    this.botInAnim = false;
+    setTimeout(() => {
+      this.openBot = false
+      this.botInAnim = true;
+      if (reset) this.conversation = [...this.welcome];
+    }, 500);
+  }
+
   async handleBot() {
     if (this.msgView) {
       this.msgView = false
@@ -105,8 +114,11 @@ export class BotComponent {
       this.writting = false;
       this.setScrollToButton();
     } else {
-      this.openBot = !this.openBot
-      if (this.openBot) this.setScrollToButton();
+      if (!this.openBot) {
+        this.openBot = true;
+        this.setScrollToButton();
+      }
+      else this.closeBot()
     }
   }
 

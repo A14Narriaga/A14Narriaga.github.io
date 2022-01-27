@@ -76,6 +76,24 @@
         cursor: pointer
         opacity: 1
 
+.circle-in
+  animation: circle-in 0.5s linear
+
+.circle-out
+  animation: circle-out 0.5s linear
+
+@keyframes circle-in
+  0%
+    clip-path: circle(0.2% at 100% 100%)
+  100%
+    clip-path: circle(141.4% at 100% 100%)
+
+@keyframes circle-out
+  0%
+    clip-path: circle(141.4% at 100% 100%)
+  100%
+    clip-path: circle(0.2% at 100% 100%)
+
 .botMsg
   position: fixed
   bottom: 4.8rem

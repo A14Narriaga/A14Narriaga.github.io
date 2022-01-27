@@ -1,4 +1,4 @@
-<section class="bot" *ngIf="openBot">
+<section class="bot circle-{{ botInAnim ? 'in' : 'out' }}" *ngIf="openBot">
   <header>
     <img src="assets/images/profile/P1.jpg" alt="" />
     <div class="info">
@@ -52,7 +52,7 @@
   class="floating-btn{{ openBot ? '-close' : '' }}"
   [disabled]="writting"
   (click)="handleBot()"
-  [ngClass]="{'disabled': writting}"
+  [ngClass]="{ disabled: writting }"
 >
   <i class="{{ openBot ? 'far fa-times-circle' : 'far fa-comment' }}"></i>
 </button>
