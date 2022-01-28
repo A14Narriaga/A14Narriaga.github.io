@@ -8,28 +8,37 @@
   border-radius: 0.5rem
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px
   header
-    display: flex
-    align-items: center
     padding: 1rem 1.5rem
     border-radius: 0.5rem 0.5rem 0 0
     background-color: var(--card-color)
     margin-bottom: 1rem
     height: 6.5rem
-    img
-      width: 3.5rem
-      border-radius: 100%
-      border: 2px solid var(--text-color)
-      margin-right: 1rem
-    .info
-      line-height: 1.1
-      .title
-        font-weight: 500
-        font-size: 1.2rem
-      .description
-        color: var(--sub-text-color)
-        font-size: 1rem
-    i
-      font-size: 1.2rem
+    display: flex
+    align-items: center
+    justify-content: space-between
+    .wrapper
+      display: flex
+      align-items: center
+      img
+        width: 3.5rem
+        border-radius: 100%
+        border: 2px solid var(--text-color)
+        margin-right: 1rem
+      .info
+        line-height: 1.1
+        .title
+          font-weight: 500
+          font-size: 1.2rem
+        .description
+          color: var(--sub-text-color)
+          font-size: 1rem
+    button
+      background-color: var(--card-color)
+      display: none
+      i
+        font-size: 1.3rem
+        &:hover
+          color: var(--primary-color)
   main
     height: calc( 100% - 8.5rem )
     padding: 0 1rem
@@ -76,24 +85,6 @@
         cursor: pointer
         opacity: 1
 
-.circle-in
-  animation: circle-in 0.5s linear
-
-.circle-out
-  animation: circle-out 0.5s linear
-
-@keyframes circle-in
-  0%
-    clip-path: circle(0.2% at 100% 100%)
-  100%
-    clip-path: circle(141.4% at 100% 100%)
-
-@keyframes circle-out
-  0%
-    clip-path: circle(141.4% at 100% 100%)
-  100%
-    clip-path: circle(0.2% at 100% 100%)
-
 .botMsg
   position: fixed
   bottom: 4.8rem
@@ -104,14 +95,14 @@
   border-radius: 0.5rem
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px
   header
+    border-radius: 0.5rem 0.5rem 0 0
+    background-color: var(--card-color)
+    height: 9rem
     display: flex
     justify-content: center
     align-items: center
     flex-direction: column
-    border-radius: 0.5rem 0.5rem 0 0
-    background-color: var(--card-color)
     line-height: 1.1
-    height: 9rem
     img
       width: 3.9rem
       border-radius: 100%
@@ -120,6 +111,17 @@
     .description
       color: var(--sub-text-color)
       font-size: 0.9rem
+    button
+      background-color: var(--card-color)
+      display: none
+      i
+        position: absolute
+        right: 0
+        top: 0
+        padding: 2rem
+        font-size: 1.3rem
+        &:hover
+          color: var(--primary-color)
   main
     padding: 1.5rem
     height: calc( 100% - 12.5rem )
@@ -140,6 +142,7 @@
     display: flex
     justify-content: center
     align-items: center
+    border-radius: 0 0 0.5rem 0.5rem
     button
       background-color: var(--card-color)
       width: 100%
@@ -147,7 +150,6 @@
       font-size: 1.1rem
       letter-spacing: 1px
       font-weight: 500
-      border-radius: 0 0 0.5rem 0.5rem
       &:hover
         color: var(--primary-color)
         cursor: pointer
@@ -178,17 +180,55 @@
     height: 100%
     bottom: 0rem
     right: 0rem
+    border-radius: 0
+    z-index: 2000
+    header
+      border-radius: 0
+      button
+        display: block
+    footer
+      border-radius: 0
   .floating-btn
     bottom: 1.5rem
     right: 1.5rem
   .floating-btn-close
-    top: 1.5rem
-    right: 1.5rem
-    height: 3.5rem
-    box-shadow: none
-    background-color: #00000000
-    i
-      color: var(--text-color)
+    display: none
   .disabled
     i
       color: var(--sub-text-color)
+
+.circle-in
+  animation: circle-in 0.3s linear
+
+.circle-out
+  animation: circle-out 0.3s linear
+
+@keyframes circle-in
+  0%
+    clip-path: circle(0% at 100% 100%)
+  100%
+    clip-path: circle(141% at 100% 100%)
+
+@keyframes circle-out
+  0%
+    clip-path: circle(141% at 100% 100%)
+  100%
+    clip-path: circle(0% at 100% 100%)
+
+.circle-top-in
+  animation: circle-top-in 0.3s linear
+
+.circle-top-out
+  animation: circle-top-out 0.3s linear
+
+@keyframes circle-top-in
+  0%
+    clip-path: circle(0% at 50% 0)
+  100%
+    clip-path: circle(111% at 50% 0)
+
+@keyframes circle-top-out
+  0%
+    clip-path: circle(111% at 50% 0)
+  100%
+    clip-path: circle(0% at 50% 0)

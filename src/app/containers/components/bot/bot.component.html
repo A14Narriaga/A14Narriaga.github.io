@@ -1,12 +1,21 @@
 <section class="bot circle-{{ botInAnim ? 'in' : 'out' }}" *ngIf="openBot">
   <header>
-    <img src="assets/images/profile/P1.jpg" alt="" />
-    <div class="info">
-      <p class="title">Alan Bot</p>
-      <p class="description">
-        {{ writting ? "Escribiendo..." : "!Hazme una pregunta!" }}
-      </p>
+    <div class="wrapper">
+      <img src="assets/images/profile/P1.jpg" alt="" />
+      <div class="info">
+        <p class="title">Alan Bot</p>
+        <p class="description">
+          {{ writting ? "Escribiendo..." : "!Hazme una pregunta!" }}
+        </p>
+      </div>
     </div>
+    <button
+      [disabled]="writting"
+      (click)="handleBot()"
+      [ngClass]="{ disabled: writting }"
+    >
+      <i class="fas fa-times"></i>
+    </button>
   </header>
   <main #container>
     <p
@@ -29,8 +38,18 @@
   </main>
 </section>
 
-<section class="botMsg" *ngIf="msgView">
+<section
+  class="botMsg circle-top-{{ botMsgInAnim ? 'in' : 'out' }}"
+  *ngIf="msgView"
+>
   <header>
+    <button
+      [disabled]="writting"
+      (click)="handleBot()"
+      [ngClass]="{ disabled: writting }"
+    >
+      <i class="fas fa-times"></i>
+    </button>
     <img src="assets/images/profile/P1.jpg" alt="" />
     <p class="title">¡Hola!</p>
     <p class="description">Te contactare pronto</p>

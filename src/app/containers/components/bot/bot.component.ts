@@ -26,6 +26,7 @@ export class BotComponent {
   msgView = false;
   openBot = false;
   botInAnim = true;
+  botMsgInAnim = true;
 
   setScrollToButton() {
     setTimeout(() => {
@@ -94,18 +95,26 @@ export class BotComponent {
     this.setScrollToButton();
   }
 
-  closeBot = (reset = false) => {
+  closeBot(reset = false) {
     this.botInAnim = false;
     setTimeout(() => {
       this.openBot = false
       this.botInAnim = true;
       if (reset) this.conversation = [...this.welcome];
-    }, 500);
+    }, 280);
+  }
+
+  closeMsgBot() {
+    this.botMsgInAnim = false;
+    setTimeout(() => {
+      this.msgView = false
+      this.botMsgInAnim = true;
+    }, 280);
   }
 
   async handleBot() {
     if (this.msgView) {
-      this.msgView = false
+      this.closeMsgBot();
       this.writting = true;
       await this.addMessage('¿Te arrepentiste? 😖', '');
       await this.addMessage('Puedes intentarlo de nuevo cuando gustes', '');
@@ -123,7 +132,7 @@ export class BotComponent {
   }
 
   async send() {
-    this.msgView = false;
+    this.closeMsgBot();
     this.writting = true;
     await this.addMessage('He enviado tu mensaje a Alan', '');
     await this.addMessage('Espero se comunique contigo pronto 🤟', '');
