@@ -1,8 +1,8 @@
-<button class="mobile-nav-toggle" (click)="open = !open">
+<button class="mobile-nav-toggle" (click)="toggleNav()">
   <i class="fas fa-bars"></i>
 </button>
-<nav *ngIf="open">
-  <ul>
+<nav>
+  <ul data-visible="false" #nav>
     <li><a href="">Habilidades</a></li>
     <li><a href="">Certificaciones</a></li>
     <li><a href="">Proyectos</a></li>
