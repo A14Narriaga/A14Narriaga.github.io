@@ -12,6 +12,7 @@ import { CardExperienceComponent } from './containers/components/card-experience
 import { CardBlogComponent } from './containers/components/card-blog/card-blog.component';
 import { CodeComponent } from './containers/components/code/code.component';
 import { NavbarComponent } from './containers/components/navbar/navbar.component';
+import { ProfilePictureComponent } from './containers/components/profile-picture/profile-picture.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NavbarComponent } from './containers/components/navbar/navbar.component
     CardExperienceComponent,
     CardBlogComponent,
     CodeComponent,
-    NavbarComponent
+    NavbarComponent,
+    ProfilePictureComponent
   ],
   imports: [
     BrowserModule,
