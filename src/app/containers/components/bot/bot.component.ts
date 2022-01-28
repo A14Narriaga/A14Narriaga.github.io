@@ -8,6 +8,8 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 
 export class BotComponent {
 
+  @ViewChild('bot') refBot!: ElementRef<HTMLDivElement>;
+  @ViewChild('msgBot') refMsgBot!: ElementRef<HTMLDivElement>;
   @ViewChild('container') refContainer!: ElementRef<HTMLDivElement>;
 
   writting = false;
@@ -23,10 +25,8 @@ export class BotComponent {
   ]
   conversation = [...this.welcome];
   options = this.userOptions;
-  msgView = false;
   openBot = false;
-  botInAnim = true;
-  botMsgInAnim = true;
+  openMsgBot = false;
 
   setScrollToButton() {
     setTimeout(() => {
@@ -78,12 +78,12 @@ export class BotComponent {
         await this.addMessage('De acuerdo', '');
         await this.addMessage('Espero haberte ayudado', '');
         await this.addMessage('Hasta pronto 👋', '');
-        this.writting = false;
-        this.closeBot(true)
-        return;
+        this.toggleBot()
+        await new Promise(resolve => setTimeout(resolve, 350));
+        this.conversation = [...this.welcome]
+        break;
       case 'Si':
-        this.msgView = true
-        this.writting = false;
+        this.toggleMsgBot();
         return;
       case 'No':
         await this.addMessage('Bueno, será en otra ocasión 😢', '');
@@ -95,44 +95,42 @@ export class BotComponent {
     this.setScrollToButton();
   }
 
-  closeBot(reset = false) {
-    this.botInAnim = false;
-    setTimeout(() => {
-      this.openBot = false
-      this.botInAnim = true;
-      if (reset) this.conversation = [...this.welcome];
-    }, 280);
+  toggleBot() {
+    const bot = this.refBot.nativeElement;
+    bot.setAttribute(
+      'data-visible',
+      bot.getAttribute('data-visible') === 'false' ? 'true' : 'false'
+    )
+    this.openBot = !this.openBot;
   }
 
-  closeMsgBot() {
-    this.botMsgInAnim = false;
-    setTimeout(() => {
-      this.msgView = false
-      this.botMsgInAnim = true;
-    }, 280);
+  async toggleMsgBot() {
+    this.writting = true;
+    const msgBot = this.refMsgBot.nativeElement;
+    msgBot.setAttribute(
+      'data-visible',
+      msgBot.getAttribute('data-visible') === 'false' ? 'true' : 'false'
+    )
+    this.openMsgBot = !this.openMsgBot;
   }
 
   async handleBot() {
-    if (this.msgView) {
-      this.closeMsgBot();
-      this.writting = true;
+    if (this.openMsgBot) {
+      this.toggleMsgBot();
       await this.addMessage('¿Te arrepentiste? 😖', '');
       await this.addMessage('Puedes intentarlo de nuevo cuando gustes', '');
-      this.options = this.userOptions.filter(uo => uo.msg !== '¡Me gustaría contactar a Alan!');
       await this.addMessage('¿Hay algo más que pueda hacer por ti?', '');
+      this.options = this.userOptions.filter(uo => uo.msg !== '¡Me gustaría contactar a Alan!');
       this.writting = false;
       this.setScrollToButton();
-    } else {
-      if (!this.openBot) {
-        this.openBot = true;
-        this.setScrollToButton();
-      }
-      else this.closeBot()
+    }
+    else {
+      this.toggleBot();
     }
   }
 
   async send() {
-    this.closeMsgBot();
+    this.toggleMsgBot();
     this.writting = true;
     await this.addMessage('He enviado tu mensaje a Alan', '');
     await this.addMessage('Espero se comunique contigo pronto 🤟', '');

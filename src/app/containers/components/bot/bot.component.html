@@ -1,4 +1,4 @@
-<section class="bot circle-{{ botInAnim ? 'in' : 'out' }}" *ngIf="openBot">
+<section class="bot" data-visible="false" #bot>
   <header>
     <div class="wrapper">
       <img src="assets/images/profile/P1.jpg" alt="" />
@@ -38,16 +38,9 @@
   </main>
 </section>
 
-<section
-  class="botMsg circle-top-{{ botMsgInAnim ? 'in' : 'out' }}"
-  *ngIf="msgView"
->
+<section class="botMsg" data-visible="false" #msgBot>
   <header>
-    <button
-      [disabled]="writting"
-      (click)="handleBot()"
-      [ngClass]="{ disabled: writting }"
-    >
+    <button (click)="handleBot()">
       <i class="fas fa-times"></i>
     </button>
     <img src="assets/images/profile/P1.jpg" alt="" />
@@ -69,9 +62,9 @@
 
 <button
   class="floating-btn{{ openBot ? '-close' : '' }}"
-  [disabled]="writting"
+  [disabled]="openMsgBot ? false : writting"
   (click)="handleBot()"
-  [ngClass]="{ disabled: writting }"
+  [ngClass]="{ disabled: openMsgBot ? false : writting }"
 >
   <i class="{{ openBot ? 'far fa-times-circle' : 'far fa-comment' }}"></i>
 </button>
