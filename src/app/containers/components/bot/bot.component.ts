@@ -11,6 +11,7 @@ export class BotComponent {
   @ViewChild('bot') refBot!: ElementRef<HTMLDivElement>;
   @ViewChild('msgBot') refMsgBot!: ElementRef<HTMLDivElement>;
   @ViewChild('container') refContainer!: ElementRef<HTMLDivElement>;
+  @ViewChild('iconDiv') refIconDiv!: ElementRef<HTMLDivElement>;
 
   writting = false;
   userOptions = [
@@ -114,6 +115,11 @@ export class BotComponent {
     this.openMsgBot = !this.openMsgBot;
   }
 
+  offPulse() {
+    const iconDiv = this.refIconDiv.nativeElement;
+    iconDiv.setAttribute('data-pulse', 'false')
+  }
+
   async handleBot() {
     if (this.openMsgBot) {
       this.toggleMsgBot();
@@ -126,6 +132,7 @@ export class BotComponent {
     }
     else {
       this.toggleBot();
+      this.offPulse();
     }
   }
 

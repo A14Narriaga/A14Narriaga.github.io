@@ -66,5 +66,7 @@
   (click)="handleBot()"
   [ngClass]="{ disabled: openMsgBot ? false : writting }"
 >
-  <i class="{{ openBot ? 'far fa-times-circle' : 'far fa-comment' }}"></i>
+  <div data-pulse="true" #iconDiv>
+    <i class="{{ openBot ? 'far fa-times-circle' : 'far fa-comment' }}"></i>
+  </div>
 </button>
