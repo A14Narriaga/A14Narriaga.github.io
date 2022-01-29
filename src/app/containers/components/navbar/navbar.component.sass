@@ -15,12 +15,29 @@ ul
     display: block
     position: absolute
     background-color: transparent
-    width: 3rem
+    width: 1.5rem
     aspect-ratio: 1
     top: 1.5rem
     left: 1.5rem
     z-index: 1001
     font-size: 1.5rem
+    .menu-icon
+      #top, #middle, #bottom
+        transition: all 350ms ease-in
+        fill: #01c5f1
+      #top
+        transform-origin: top left
+      #middle
+        transform-origin: center center
+      #bottom
+        transform-origin: bottom right
+    .menu-icon[data-close="true"]
+      #top
+        transform: rotate(45deg) translateX(15%) translateY(-15%)
+      #middle
+        transform: rotate(-45deg)
+      #bottom
+        transform: rotate(45deg) translateX(-15%) translateY(15%)
   ul
     position: fixed
     inset: 0 30% 0 0

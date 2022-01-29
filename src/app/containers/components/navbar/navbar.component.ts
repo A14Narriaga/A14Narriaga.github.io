@@ -9,13 +9,19 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 export class NavbarComponent {
 
   @ViewChild('nav') refNav!: ElementRef<HTMLDivElement>
+  @ViewChild('menuIcon') refMenuIcon!: ElementRef<SVGElement>
 
   toggleNav() {
     const nav = this.refNav.nativeElement;
+    const menuIcon = this.refMenuIcon.nativeElement;
     nav.setAttribute(
       'data-visible',
       nav.getAttribute('data-visible') === 'false' ? 'true' : 'false'
     );
+    menuIcon.setAttribute(
+      'data-close',
+      menuIcon.getAttribute('data-close') === 'false' ? 'true' : 'false'
+    )
   }
 
 }
