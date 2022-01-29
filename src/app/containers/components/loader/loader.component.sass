@@ -9,43 +9,59 @@
   height: 100vh
   z-index: 9999
   svg
-    width: 8rem
+    width: 7.5rem
 
-.circle-gray, .A-gray
+#circle-gray, #A-gray
   fill: #bdbdbd
 
-.circle-cyan, .A-cyan
+#circle-cyan, #A-cyan
   fill: #00cbf8
 
-.circle-gray
-  animation: anim-cg 2s infinite
+#circle-gray
+  animation: anim-cg 2s cubic-bezier(.97,-0.01,0,.99) infinite 1s
 
-.circle-cyan
-  animation: anim-cc 2s infinite
+#circle-cyan
+  animation: anim-cc 2s cubic-bezier(.97,-0.01,0,.99) infinite
 
-.A-gray, .A-cyan
+#A-gray, #A-cyan
   animation: anim-l 2s infinite
 
 @keyframes anim-cg
   0%
     opacity: 0
-    transform: translateX(-100%) translateY(-100%)
+    transform-origin: center center
+    transform: scale(0.5)
   100%
     opacity: 1
-    transform: translateX(0%) translateY(0%)
+    transform-origin: center center
+    transform: scale(1)
 
 @keyframes anim-cc
   0%
     opacity: 0
-    transform: translateX(100%) translateY(100%)
+    transform-origin: center center
+    transform: scale(0.5)
   100%
     opacity: 1
-    transform: translateX(0%) translateY(0%)
+    transform-origin: center center
+    transform: scale(1)
 
 @keyframes anim-l
   0%
-    opacity: 0
-    transform: scale(0) translateX(50%) translateY(50%)
+    transform-origin: center center
+    transform: scale(0.8)
+  25%
+    transform-origin: center center
+    transform: scale(0.8)
+  30%
+    transform-origin: center center
+    transform: scale(1)
+  50%
+    transform-origin: center center
+    transform: scale(0.9)
+  70%
+    transform-origin: center center
+    transform: scale(1)
   100%
-    opacity: 1
-    transform: scale(1) translateX(0) translateY(0)
+    transform-origin: center center
+    transform: scale(0.8)
