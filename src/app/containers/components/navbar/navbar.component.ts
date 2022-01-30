@@ -11,6 +11,7 @@ export class NavbarComponent {
   @ViewChild('nav') refNav!: ElementRef<HTMLDivElement>
   @ViewChild('menuIcon') refMenuIcon!: ElementRef<SVGElement>
   @ViewChild('soundIcon') refSoundIcon!: ElementRef<SVGElement>
+  @ViewChild('themeIcon') refThemeIcon!: ElementRef<SVGElement>
 
   toggleNav() {
     const nav = this.refNav.nativeElement;
@@ -30,6 +31,14 @@ export class NavbarComponent {
     soundIcon.setAttribute(
       'data-sound',
       soundIcon.getAttribute('data-sound') === 'false' ? 'true' : 'false'
+    )
+  }
+
+  toggleTheme() {
+    const themeIcon = this.refThemeIcon.nativeElement;
+    themeIcon.setAttribute(
+      'data-dark',
+      themeIcon.getAttribute('data-dark') === 'false' ? 'true' : 'false'
     )
   }
 
