@@ -1,16 +1,29 @@
 .mobile-nav-toggle
   display: none
 
-ul
+.nav
+  position: fixed
+  width: 100%
+  padding: 1rem
   background-color: hsl(0 0% 0% / 0.75)
-  display: flex
-  list-style: none
-  gap: 1rem
-  li
-    a
-      text-decoration: none
+  nav
+    display: flex
+    justify-content: space-between
+    align-items: center
+    .links, .configs
+      display: flex
+      justify-content: center
+      align-items: center
+      list-style: none
+      gap: 1rem
+      li
+        display: flex
+        justify-content: center
+        align-items: center
+        a
+          text-decoration: none
 
-@media (max-width: 632px)
+@media (max-width: 680px)
   .mobile-nav-toggle
     display: block
     position: absolute
@@ -21,35 +34,66 @@ ul
     left: 1.5rem
     z-index: 1001
     font-size: 1.5rem
-    .menu-icon
-      #top, #middle, #bottom
-        transition: all 350ms cubic-bezier(1,-0.32,0,1.44)
-        fill: #01c5f1
-      #top
-        transform-origin: top left
-      #middle
-        transform-origin: center center
-      #bottom
-        transform-origin: bottom right
-    .menu-icon[data-close="true"]
-      #top
-        transform: rotate(45deg) translateX(15%) translateY(-15%)
-      #middle
-        transform: rotate(-45deg)
-      #bottom
-        transform: rotate(45deg) translateX(-15%) translateY(15%)
-  ul
+    &:hover
+      cursor: pointer
+  .nav
     position: fixed
-    inset: 0 30% 0 0
+    width: auto
     padding: min(20vh, 10rem) 2rem
-    flex-direction: column
+    inset: 0 30% 0 0
     z-index: 1000
     transition: transform 350ms ease-in
     transform: translateX(-100%)
-  ul[data-visible="true"]
+    nav
+      flex-direction: column
+      .links
+        flex-direction: column
+        margin-bottom: 3rem
+      .configs
+  .nav[data-visible="true"]
     transform: translateX(0%)
 
+.sound-icon
+  width: 1.5rem
+  #horn, #vol1, #vol2, #vol3
+    fill: var(--text-color)
+    transition: all 1s cubic-bezier(1,-0.32,0,1.44)
+  #horn
+    transition-delay: 0s
+  #vol1
+    transition-delay: 0.8s
+  #vol2
+    transition-delay: 0.4s
+  #vol3
+    transition-delay: 0s
+  &:hover
+    cursor: pointer
+.sound-icon[data-sound="false"]
+  #horn
+    transform: translateX(25%)
+    transition-delay: 1.2s
+  #vol1, #vol2, #vol3
+    opacity: 0
+
+.menu-icon
+  #top, #middle, #bottom
+    transition: all 350ms cubic-bezier(1,-0.32,0,1.44)
+    fill: #01c5f1
+  #top
+    transform-origin: top left
+  #middle
+    transform-origin: center center
+  #bottom
+    transform-origin: bottom right
+.menu-icon[data-close="true"]
+  #top
+    transform: rotate(45deg) translateX(15%) translateY(-15%)
+  #middle
+    transform: rotate(-45deg)
+  #bottom
+    transform: rotate(45deg) translateX(-15%) translateY(15%)
+
 @supports(backdrop-filter: blur(1rem))
-  ul
-    background-color: hsl(0 0% 100% / 0.1)
+  .nav
     backdrop-filter: blur(1rem)
+    background-color: #09496334

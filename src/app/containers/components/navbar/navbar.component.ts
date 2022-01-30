@@ -10,17 +10,26 @@ export class NavbarComponent {
 
   @ViewChild('nav') refNav!: ElementRef<HTMLDivElement>
   @ViewChild('menuIcon') refMenuIcon!: ElementRef<SVGElement>
+  @ViewChild('soundIcon') refSoundIcon!: ElementRef<SVGElement>
 
   toggleNav() {
     const nav = this.refNav.nativeElement;
-    const menuIcon = this.refMenuIcon.nativeElement;
     nav.setAttribute(
       'data-visible',
       nav.getAttribute('data-visible') === 'false' ? 'true' : 'false'
     );
+    const menuIcon = this.refMenuIcon.nativeElement;
     menuIcon.setAttribute(
       'data-close',
       menuIcon.getAttribute('data-close') === 'false' ? 'true' : 'false'
+    )
+  }
+
+  toggleSound() {
+    const soundIcon = this.refSoundIcon.nativeElement;
+    soundIcon.setAttribute(
+      'data-sound',
+      soundIcon.getAttribute('data-sound') === 'false' ? 'true' : 'false'
     )
   }
 
