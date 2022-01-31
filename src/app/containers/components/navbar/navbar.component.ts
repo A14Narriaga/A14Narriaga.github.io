@@ -12,6 +12,7 @@ export class NavbarComponent {
   @ViewChild('menuIcon') refMenuIcon!: ElementRef<SVGElement>
   @ViewChild('soundIcon') refSoundIcon!: ElementRef<SVGElement>
   @ViewChild('themeIcon') refThemeIcon!: ElementRef<SVGElement>
+  @ViewChild('languageIcon') refLanguageIcon!: ElementRef<SVGElement>
 
   toggleNav() {
     const nav = this.refNav.nativeElement;
@@ -39,6 +40,14 @@ export class NavbarComponent {
     themeIcon.setAttribute(
       'data-dark',
       themeIcon.getAttribute('data-dark') === 'false' ? 'true' : 'false'
+    )
+  }
+
+  toggleLanguage() {
+    const languageIcon = this.refLanguageIcon.nativeElement;
+    languageIcon.setAttribute(
+      'data-es',
+      languageIcon.getAttribute('data-es') === 'false' ? 'true' : 'false'
     )
   }
 

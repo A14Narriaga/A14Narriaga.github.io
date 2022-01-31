@@ -10,6 +10,8 @@
     display: flex
     justify-content: space-between
     align-items: center
+    .social
+      display: none
     .links, .configs
       display: flex
       justify-content: center
@@ -41,7 +43,7 @@
   .nav
     position: fixed
     width: auto
-    padding: min(20vh, 10rem) 2rem
+    padding: min(20vh, 5rem) 2rem
     inset: 0 30% 0 0
     z-index: 1000
     transition: transform 350ms ease-in
@@ -50,12 +52,14 @@
       flex-direction: column-reverse
       .links
         flex-direction: column
-      .configs
         margin-bottom: 3rem
-        svg
-          width: 2rem
-        i
-          font-size: 1.5rem
+      .configs
+        gap: 1.5rem
+        margin-bottom: 3rem
+      .social
+        display: flex
+        gap: 1.5rem
+        font-size: 1.5rem
   .nav[data-visible="true"]
     transform: translateX(0%)
 
@@ -78,11 +82,12 @@
     transform: rotate(45deg) translateX(-15%) translateY(15%)
 
 .sound-icon
-  width: 1.5rem
+  width: 2rem
   #horn, #vol1, #vol2, #vol3
     fill: var(--text-color)
     transition: all 1s cubic-bezier(1,-0.32,0,1.44)
   #horn
+    transform-origin: center center
     transition-delay: 0s
   #vol1
     transition-delay: 0.8s
@@ -92,13 +97,13 @@
     transition-delay: 0s
 .sound-icon[data-sound="false"]
   #horn
-    transform: translateX(25%)
+    transform: translateX(25%) scale(1.2)
     transition-delay: 1s
   #vol1, #vol2, #vol3
     opacity: 0
 
 .theme-icon
-  width: 1.5rem
+  width: 1.7rem
   #moon, #sun, #sun-rays
     fill: var(--text-color)
     transition: all 1s cubic-bezier(1,-0.32,0,1.44)
@@ -122,6 +127,25 @@
   #sun-rays
     opacity: 0
     transform: rotate(-90deg) scale(0.5)
+
+.language-icon
+  width: 2rem
+  #msg, #es, #en
+    fill: var(--text-color)
+    transition: all 1s cubic-bezier(1,-0.32,0,1.44)
+  #en
+    transform: translateX(-100%)
+    opacity: 0
+  #es
+    transform: translateX(0%)
+    opacity: 1
+.language-icon[data-es="false"]
+  #en
+    transform: translateX(0%)
+    opacity: 1
+  #es
+    transform: translateX(100%)
+    opacity: 0
 
 @supports(backdrop-filter: blur(1rem))
   .nav
