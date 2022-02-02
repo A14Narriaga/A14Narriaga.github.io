@@ -164,6 +164,8 @@
   bottom: 3rem
   right: 3rem
   background-color: #ffffff00
+  .disabled
+    background-color: var(--primary-disabled-color)
   div
     background-color: var(--primary-color)
     border-radius: 100%
@@ -195,9 +197,6 @@
 .floating-btn div[data-pulse="true"]:after,
 .floating-btn-close div[data-pulse="true"]:after
   animation-delay: 0.4s
-
-.disabled
-  background-color: var(--primary-disabled-color)
 
 @media (max-width: 490px)
   .bot, .botMsg

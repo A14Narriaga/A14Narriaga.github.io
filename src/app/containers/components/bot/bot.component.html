@@ -64,9 +64,12 @@
   class="floating-btn{{ openBot ? '-close' : '' }}"
   [disabled]="openMsgBot ? false : writting"
   (click)="handleBot()"
-  [ngClass]="{ disabled: openMsgBot ? false : writting }"
 >
-  <div data-pulse="true" #iconDiv>
+  <div
+    data-pulse="true"
+    #iconDiv
+    [ngClass]="{ disabled: openMsgBot ? false : writting }"
+  >
     <i class="{{ openBot ? 'far fa-times-circle' : 'far fa-comment' }}"></i>
   </div>
 </button>
