@@ -24,6 +24,7 @@
         align-items: center
         a
           text-decoration: none
+          font-weight: 500
         &:hover
           cursor: pointer
 
@@ -43,7 +44,7 @@
   .nav
     position: fixed
     width: auto
-    padding: min(20vh, 5rem) 2rem
+    padding: min(20vh, 20rem) 2rem
     inset: 0 30% 0 0
     z-index: 1000
     transition: transform 350ms ease-in
@@ -52,21 +53,28 @@
       flex-direction: column-reverse
       .links
         flex-direction: column
+        font-size: 1.2rem
         margin-bottom: 3rem
       .configs
         gap: 1.5rem
         margin-bottom: 3rem
+        .language-icon
+          width: 1.9rem
+        .sound-icon
+          width: 1.8rem
+        .theme-icon
+          width: 1.7rem
       .social
         display: flex
         gap: 1.5rem
-        font-size: 1.5rem
+        font-size: 1.6rem
   .nav[data-visible="true"]
     transform: translateX(0%)
 
 .menu-icon
   #top, #middle, #bottom
     transition: all 350ms cubic-bezier(1,-0.32,0,1.44)
-    fill: #01c5f1
+    fill: var(--primary-color)
   #top
     transform-origin: top left
   #middle

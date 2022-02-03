@@ -13,6 +13,8 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    const themeDark = localStorage.getItem('themeDark');
+    themeDark === 'true' ? document.body.classList.add('dark') : "";
     setTimeout(() => this.loading = false, 2500);
   }
 

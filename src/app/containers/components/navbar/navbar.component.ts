@@ -16,39 +16,30 @@ export class NavbarComponent {
 
   toggleNav() {
     const nav = this.refNav.nativeElement;
-    nav.setAttribute(
-      'data-visible',
-      nav.getAttribute('data-visible') === 'false' ? 'true' : 'false'
-    );
     const menuIcon = this.refMenuIcon.nativeElement;
-    menuIcon.setAttribute(
-      'data-close',
-      menuIcon.getAttribute('data-close') === 'false' ? 'true' : 'false'
-    )
+    const isOpen = nav.getAttribute('data-visible') === 'true';
+    nav.setAttribute('data-visible', `${!isOpen}`);
+    menuIcon.setAttribute('data-close', `${!isOpen}`);
   }
 
   toggleSound() {
     const soundIcon = this.refSoundIcon.nativeElement;
-    soundIcon.setAttribute(
-      'data-sound',
-      soundIcon.getAttribute('data-sound') === 'false' ? 'true' : 'false'
-    )
+    const isOn = soundIcon.getAttribute('data-sound') === 'true';
+    soundIcon.setAttribute('data-sound', `${!isOn}`);
   }
 
   toggleTheme() {
     const themeIcon = this.refThemeIcon.nativeElement;
-    themeIcon.setAttribute(
-      'data-dark',
-      themeIcon.getAttribute('data-dark') === 'false' ? 'true' : 'false'
-    )
+    const isDark = themeIcon.getAttribute('data-dark') === 'true';
+    themeIcon.setAttribute('data-dark', `${!isDark}`)
+    document.body.classList.toggle('dark');
+    localStorage.setItem('themeDark', `${isDark}`);
   }
 
   toggleLanguage() {
     const languageIcon = this.refLanguageIcon.nativeElement;
-    languageIcon.setAttribute(
-      'data-es',
-      languageIcon.getAttribute('data-es') === 'false' ? 'true' : 'false'
-    )
+    const isEs = languageIcon.getAttribute('data-es') === 'true';
+    languageIcon.setAttribute('data-es', `${!isEs}`)
   }
 
 }
