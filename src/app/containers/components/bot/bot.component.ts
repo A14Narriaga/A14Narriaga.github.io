@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-bot',
@@ -7,6 +8,8 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 })
 
 export class BotComponent {
+
+  constructor(private formBuilder: FormBuilder) { }
 
   @ViewChild('bot') refBot!: ElementRef<HTMLDivElement>;
   @ViewChild('msgBot') refMsgBot!: ElementRef<HTMLDivElement>;
@@ -28,6 +31,17 @@ export class BotComponent {
   options = this.userOptions;
   openBot = false;
   openMsgBot = false;
+
+  formGroup: FormGroup = this.formBuilder.group({
+    email: ['', [Validators.required]],
+    name: ['', [Validators.required, Validators.maxLength(50)]],
+    matter: ['', [Validators.required, Validators.maxLength(20)]],
+    msg: ['', [Validators.required, Validators.maxLength(250)]]
+  })
+
+  isInvalid = (name: string) =>
+    this.formGroup.controls[name].errors &&
+    this.formGroup.controls[name].touched
 
   setScrollToButton() {
     setTimeout(() => {
@@ -137,14 +151,20 @@ export class BotComponent {
   }
 
   async send() {
-    this.toggleMsgBot();
-    this.writting = true;
-    await this.addMessage('He enviado tu mensaje a Alan', '');
-    await this.addMessage('Espero se comunique contigo pronto 🤟', '');
-    await this.addMessage('¿Puedo hacer algo más por ti?', '');
-    this.options = this.userOptions.filter(uo => uo.msg !== '¡Me gustaría contactar a Alan!');
-    this.writting = false;
-    this.setScrollToButton();
+    if (this.formGroup.invalid) {
+      this.formGroup.markAllAsTouched()
+    } else {
+      console.log(this.formGroup.value);
+      this.formGroup.reset();
+      this.toggleMsgBot();
+      this.writting = true;
+      await this.addMessage('He enviado tu mensaje a Alan', '');
+      await this.addMessage('Espero se comunique contigo pronto 🤟', '');
+      await this.addMessage('¿Puedo hacer algo más por ti?', '');
+      this.options = this.userOptions.filter(uo => uo.msg !== '¡Me gustaría contactar a Alan!');
+      this.writting = false;
+      this.setScrollToButton();
+    }
   }
 
 }

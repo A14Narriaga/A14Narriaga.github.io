@@ -13,6 +13,7 @@ import { CardBlogComponent } from './containers/components/card-blog/card-blog.c
 import { CodeComponent } from './containers/components/code/code.component';
 import { NavbarComponent } from './containers/components/navbar/navbar.component';
 import { ProfilePictureComponent } from './containers/components/profile-picture/profile-picture.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ProfilePictureComponent } from './containers/components/profile-picture
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

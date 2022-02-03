@@ -3,20 +3,22 @@
 // font-family: 'Laila', sans-serif
 
 :root {
+  --navbar-text-color: #003336;
   --background-color: #a5c9c3;
   --background-color-trasparent: #b5c9c696;
-  --primary-color: #003336;
+  --primary-color: #001b1d;
   --primary-disabled-color: #888888;
-  --card-color: #c9c9c9;
-  --text-color: #003336;
+  --card-color: #d6d6d6;
+  --text-color: #000000;
   --sub-text-color: #003336;
   --background-chat-color: #27857e;
-  --usr-msg-color: #9debff;
+  --usr-msg-color: #adffbeef;
   --logo-primary: #003336;
   --logo-secondary: #003336;
 }
 
 .dark {
+  --navbar-text-color: #eaeaea;
   --background-color: #252e2d;
   --background-color-trasparent: #252e2da4;
   --primary-color: #00cbf8;

@@ -48,11 +48,30 @@
     <p class="description">Te contactare pronto</p>
   </header>
   <main>
-    <form>
-      <input type="text" placeholder="Correo" />
-      <input type="text" placeholder="Nombre" />
-      <input type="text" placeholder="Asunto" />
-      <textarea placeholder="Mensaje"></textarea>
+    <form [formGroup]="formGroup">
+      <input
+        type="text"
+        placeholder="Correo"
+        formControlName="email"
+        [ngClass]="{ invalid: isInvalid('email') }"
+      />
+      <input
+        type="text"
+        placeholder="Nombre"
+        formControlName="name"
+        [ngClass]="{ invalid: isInvalid('name') }"
+      />
+      <input
+        type="text"
+        placeholder="Asunto"
+        formControlName="matter"
+        [ngClass]="{ invalid: isInvalid('matter') }"
+      />
+      <textarea
+        placeholder="Mensaje"
+        formControlName="msg"
+        [ngClass]="{ invalid: isInvalid('msg') }"
+      ></textarea>
     </form>
   </main>
   <footer>
