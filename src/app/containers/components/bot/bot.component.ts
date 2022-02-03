@@ -3,7 +3,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 @Component({
   selector: 'app-bot',
   templateUrl: './bot.component.html',
-  styleUrls: ['./bot.component.sass']
+  styleUrls: ['./bot.component.scss']
 })
 
 export class BotComponent {

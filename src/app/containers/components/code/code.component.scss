@@ -1,0 +1,54 @@
+.card {
+  background-color: var(--card-color);
+  border-radius: 0.3rem;
+  padding: 1rem 1rem 1.5rem 1.5rem;
+  header {
+    display: flex;
+    justify-content: space-between;
+    p {
+      font-size: 1rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    i {
+      background-color: #ffffff2a;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      font-size: 1.2rem;
+      transform: scale(0.5);
+      opacity: 0;
+      transition: 0.5s all;
+    }
+  }
+  main {
+    .line {
+      font-family: "Fira Code", monospace;
+      font-size: 0.8rem;
+      font-variant-ligatures: normal;
+    }
+    .num {
+      font-family: "Fira Code", monospace;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-right: 0.5rem;
+      color: #e0f00a;
+    }
+  }
+  &:hover {
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+      rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    header {
+      i {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  }
+}
+span.blue {
+  color: var(--primary-color);
+}
+span.green {
+  color: #16e744;
+}

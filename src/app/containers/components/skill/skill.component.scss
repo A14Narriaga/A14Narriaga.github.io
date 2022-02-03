@@ -1,0 +1,25 @@
+.skill {
+  padding: 3rem;
+  width: 14rem;
+  .name {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.4rem;
+  }
+  .progress-bar {
+    width: 100%;
+    background-color: var(--card-color);
+    border-radius: 10rem;
+    display: flex;
+    align-items: center;
+    div {
+      background-color: var(--primary-color);
+      width: 100%;
+      max-width: calc(var(--val) * 1%);
+      height: 0.3rem;
+      margin: 0.1rem;
+      border-radius: 10rem;
+    }
+  }
+}
