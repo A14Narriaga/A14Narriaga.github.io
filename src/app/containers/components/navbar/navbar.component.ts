@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, Input } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -7,6 +7,14 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 })
 
 export class NavbarComponent {
+
+  @Input() set _isDark(isDark: boolean) {
+    setTimeout(
+      () => this.refThemeIcon.nativeElement
+        .setAttribute('data-dark', `${!isDark}`)
+      , 0
+    );
+  }
 
   @ViewChild('nav') refNav!: ElementRef<HTMLDivElement>
   @ViewChild('menuIcon') refMenuIcon!: ElementRef<SVGElement>
@@ -30,10 +38,10 @@ export class NavbarComponent {
 
   toggleTheme() {
     const themeIcon = this.refThemeIcon.nativeElement;
-    const isDark = themeIcon.getAttribute('data-dark') === 'true';
-    themeIcon.setAttribute('data-dark', `${!isDark}`)
+    const isDark = document.body.classList.contains('dark');
+    themeIcon.setAttribute('data-dark', `${isDark}`)
     document.body.classList.toggle('dark');
-    localStorage.setItem('themeDark', `${isDark}`);
+    localStorage.setItem('themeDark', `${!isDark}`);
   }
 
   toggleLanguage() {

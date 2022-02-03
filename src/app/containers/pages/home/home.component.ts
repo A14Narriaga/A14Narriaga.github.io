@@ -9,12 +9,18 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   loading = true;
+  themeDark: any;
 
   constructor() { }
 
   ngOnInit(): void {
-    const themeDark = localStorage.getItem('themeDark');
-    themeDark === 'true' ? document.body.classList.add('dark') : "";
+    const currentHour = new Date().getHours();
+    this.themeDark = localStorage.getItem('themeDark') === null
+      ? !(currentHour >= 7 && currentHour <= 19)
+      : localStorage.getItem('themeDark') === 'true';
+    this.themeDark
+      ? document.body.classList.add('dark')
+      : document.body.classList.remove('dark');
     setTimeout(() => this.loading = false, 2500);
   }
 
