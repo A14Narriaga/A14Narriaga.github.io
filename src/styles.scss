@@ -5,8 +5,8 @@
 :root {
   --navbar-text-color: #003336;
   --background-color: #a5c9c3;
-  --background-color-trasparent: #b5c9c696;
-  --primary-color: #001b1d;
+  --background-color-trasparent: rgba(134, 134, 134, 0);
+  --primary-color: #003336;
   --primary-disabled-color: #888888;
   --card-color: #d6d6d6;
   --text-color: #000000;
@@ -20,7 +20,6 @@
 .dark {
   --navbar-text-color: #eaeaea;
   --background-color: #252e2d;
-  --background-color-trasparent: #252e2da4;
   --primary-color: #00cbf8;
   --primary-disabled-color: #888888;
   --card-color: #042222;
@@ -53,5 +52,20 @@
 }
 
 body {
-  background-color: var(--background-color);
+  background-color: #a5c9c3;
+}
+
+#colorBg {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: #252e2d;
+  transition: clip-path 350ms ease-in-out;
+  clip-path: circle(0% at 100% 0);
+}
+#colorBg[data-dark="true"] {
+  clip-path: circle(200% at 100% 0%);
 }

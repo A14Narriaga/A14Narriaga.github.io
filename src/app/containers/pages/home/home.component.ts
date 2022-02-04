@@ -16,12 +16,13 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     const currentHour = new Date().getHours();
     this.themeDark = localStorage.getItem('themeDark') === null
-      ? !(currentHour >= 7 && currentHour <= 19)
-      : localStorage.getItem('themeDark') === 'true';
+    ? !(currentHour >= 7 && currentHour <= 19)
+    : localStorage.getItem('themeDark') === 'true';
     this.themeDark
-      ? document.body.classList.add('dark')
-      : document.body.classList.remove('dark');
+    ? document.body.classList.add('dark')
+    : document.body.classList.remove('dark');
     setTimeout(() => this.loading = false, 2500);
+    document.getElementById('colorBg')?.setAttribute('data-dark', `${this.themeDark}`)
   }
 
 }

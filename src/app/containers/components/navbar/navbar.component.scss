@@ -86,6 +86,9 @@
         display: flex;
         gap: 1.5rem;
         font-size: 1.6rem;
+        i {
+          color: var(--navbar-text-color);
+        }
       }
     }
   }
