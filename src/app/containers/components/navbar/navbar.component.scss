@@ -35,8 +35,11 @@
       color: var(--navbar-text-color);
     }
     .configs li {
-      svg g {
+      svg {
         fill: var(--navbar-text-color);
+        &:hover {
+          animation: 1s bgGradient ease-in-out infinite;
+        }
       }
     }
   }
@@ -91,12 +94,30 @@
         list-style: none;
         i {
           color: var(--navbar-text-color);
+          &:hover {
+            animation: 1s bgGradient ease-in-out infinite;
+          }
         }
       }
     }
   }
   .nav[data-visible="true"] {
     transform: translateX(0%);
+  }
+}
+
+@keyframes bgGradient {
+  0% {
+    color: var(--primary-color);
+    fill: var(--primary-color);
+  }
+  50% {
+    color: var(--aux-color);
+    fill: var(--aux-color);
+  }
+  100% {
+    color: var(--primary-color);
+    fill: var(--primary-color);
   }
 }
 
