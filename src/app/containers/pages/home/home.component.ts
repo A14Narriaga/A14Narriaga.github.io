@@ -15,9 +15,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     const currentHour = new Date().getHours();
-    this.themeDark = localStorage.getItem('themeDark') === null
+    this.themeDark = sessionStorage.getItem('themeDark') === null
     ? !(currentHour >= 7 && currentHour <= 19)
-    : localStorage.getItem('themeDark') === 'true';
+    : sessionStorage.getItem('themeDark') === 'true';
     this.themeDark
     ? document.body.classList.add('dark')
     : document.body.classList.remove('dark');

@@ -63,7 +63,7 @@ body {
   top: 0;
   right: 0;
   background-color: #252e2d;
-  transition: clip-path 350ms ease-in-out;
+  transition: clip-path 350ms ease-in;
   clip-path: circle(0% at 100% 0);
 }
 #colorBg[data-dark="true"] {

@@ -42,7 +42,7 @@ export class NavbarComponent {
     themeIcon.setAttribute('data-dark', `${isDark}`)
     document.body.classList.toggle('dark');
     document.getElementById('colorBg')?.setAttribute('data-dark', `${!isDark}`);
-    localStorage.setItem('themeDark', `${!isDark}`);
+    sessionStorage.setItem('themeDark', `${!isDark}`);
   }
 
   toggleLanguage() {
