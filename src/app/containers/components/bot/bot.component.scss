@@ -239,7 +239,7 @@
 .floating-btn-close div[data-pulse="true"]:after {
   animation-delay: 0.4s;
 }
-@media (max-width: 490px) {
+@media (max-width: 500px) {
   .bot,
   .botMsg {
     width: 100vw;
@@ -252,6 +252,7 @@
       border-radius: 0;
       button {
         display: block;
+        cursor: pointer;
       }
     }
     footer {
