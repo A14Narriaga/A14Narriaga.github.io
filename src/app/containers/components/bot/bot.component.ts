@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HomeService } from '../../../services/home.service';
 
 @Component({
   selector: 'app-bot',
@@ -9,7 +10,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 export class BotComponent {
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private service: HomeService
+  ) { }
 
   @ViewChild('bot') refBot!: ElementRef<HTMLDivElement>;
   @ViewChild('msgBot') refMsgBot!: ElementRef<HTMLDivElement>;
@@ -33,9 +37,11 @@ export class BotComponent {
   openMsgBot = false;
 
   formGroup: FormGroup = this.formBuilder.group({
-    email: ['', [Validators.required]],
-    name: ['', [Validators.required, Validators.maxLength(50)]],
-    matter: ['', [Validators.required, Validators.maxLength(20)]],
+    email: ['', [Validators.required, Validators.pattern(
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    ), Validators.maxLength(40)]],
+    name: ['', [Validators.required, Validators.maxLength(100)]],
+    matter: ['', [Validators.required, Validators.maxLength(50)]],
     msg: ['', [Validators.required, Validators.maxLength(250)]]
   })
 
@@ -136,6 +142,7 @@ export class BotComponent {
 
   async handleBot() {
     if (this.openMsgBot) {
+      this.formGroup.reset();
       this.toggleMsgBot();
       await this.addMessage('¿Te arrepentiste? 😖', '');
       await this.addMessage('Puedes intentarlo de nuevo cuando gustes', '');
@@ -152,9 +159,9 @@ export class BotComponent {
 
   async send() {
     if (this.formGroup.invalid) {
-      this.formGroup.markAllAsTouched()
+      this.formGroup.markAllAsTouched();
     } else {
-      console.log(this.formGroup.value);
+      this.service.sendMsg(this.formGroup.value);
       this.formGroup.reset();
       this.toggleMsgBot();
       this.writting = true;

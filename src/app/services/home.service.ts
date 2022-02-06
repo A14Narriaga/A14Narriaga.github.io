@@ -5,5 +5,11 @@ import { Injectable } from '@angular/core';
 })
 
 export class HomeService {
+
   constructor() { }
+
+  sendMsg(info: any): void {
+    console.log(info);
+  }
+
 }
