@@ -41,7 +41,7 @@ export class NavbarComponent {
     const isDark = document.body.classList.contains('dark');
     themeIcon.setAttribute('data-dark', `${isDark}`)
     document.body.classList.toggle('dark');
-    document.getElementById('colorBg')?.setAttribute('data-dark', `${!isDark}`);
+    // document.getElementById('colorBg')?.setAttribute('data-dark', `${!isDark}`);
     sessionStorage.setItem('themeDark', `${!isDark}`);
   }
 
