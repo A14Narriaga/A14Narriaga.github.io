@@ -5,7 +5,7 @@
 :root {
   --navbar-text-color: #003336;
   --background-color: #a5c9c3;
-  --background-color-trasparent: rgba(134, 134, 134, 0);
+  --background-color-trasparent: rgba(29, 29, 29, 0.034);
   --primary-color: #003336;
   --primary-disabled-color: #888888;
   --card-color: #d6d6d6;
@@ -25,7 +25,7 @@
   --primary-disabled-color: #888888;
   --card-color: #042222;
   --text-color: #eaeaea;
-  --sub-text-color: #7c8183;
+  --sub-text-color: #999da0;
   --background-chat-color: #06615b;
   --usr-msg-color: #003336;
   --logo-primary: #00cbf8;
@@ -55,6 +55,7 @@
 
 body {
   background-color: #a5c9c3;
+  z-index: -2;
 }
 
 #colorBg {
@@ -67,6 +68,7 @@ body {
   background-color: #252e2d;
   transition: clip-path 350ms ease-in;
   clip-path: circle(0% at 100% 0);
+  z-index: -1;
 }
 #colorBg[data-dark="true"] {
   clip-path: circle(200% at 100% 0%);
