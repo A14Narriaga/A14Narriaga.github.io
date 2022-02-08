@@ -38,17 +38,43 @@
   margin: 0 auto;
   h1 {
     color: var(--primary-color);
+    font-size: 1.7rem;
+  }
+  .s-cards {
+    .s-card {
+      padding: 2rem 0rem 0rem 0rem;
+      border-radius: 0.3rem;
+      position: relative;
+      h2 {
+        background-color: var(--background-color);
+        width: max-content;
+        line-height: 1;
+        padding: 0.3rem 0.7rem;
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        color: var(--sub-text-color);
+      }
+      div {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+        border: 2px solid var(--sub-text-color);
+        border-radius: 1rem;
+        padding: 1.5rem;
+      }
+    }
   }
 }
 
 @media (max-width: 1024px) {
-  section {
+  .responsive {
     padding: 2rem;
   }
 }
 
 @media (max-width: 650px) {
-  section .info div h1 {
+  .about .info div h1 {
     font-size: 2.7rem;
   }
 }

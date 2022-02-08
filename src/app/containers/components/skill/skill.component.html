@@ -1,10 +1,9 @@
 <section class="skill">
   <div class="name">
-    <i class="fab fa-angular"></i>
-    <p>Angular</p>
+    <i [class]="icon"></i>
+    <p>{{ name }}</p>
   </div>
   <div class="progress-bar">
-    <div style="--val: 50"></div>
+    <div style="--val: {{ level }}"></div>
   </div>
 </section>
-

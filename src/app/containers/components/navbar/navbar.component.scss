@@ -11,6 +11,7 @@
   position: fixed;
   width: 100%;
   padding: 1rem;
+  z-index: 100;
   nav {
     max-width: 1024px;
     margin: 0 auto;
@@ -80,7 +81,7 @@
 @media (max-width: 680px) {
   .mobile-nav-toggle {
     display: block;
-    position: absolute;
+    position: fixed;
     background-color: transparent;
     width: 1.6rem;
     aspect-ratio: 1;

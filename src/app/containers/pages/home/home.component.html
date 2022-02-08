@@ -1,6 +1,6 @@
 <app-loader *ngIf="loading"></app-loader>
 <app-navbar [_isDark]="themeDark"></app-navbar>
-<section class="about">
+<section class="about responsive">
   <div class="info">
     <div>
       <p>Hola, mi nombre es</p>
@@ -9,8 +9,20 @@
     <p #textP></p>
   </div>
 </section>
-<section class="skills">
+<section class="skills responsive">
   <h1>Habilidades</h1>
-  <section></section>
+  <div class="s-cards">
+    <section class="s-card" *ngFor="let skill of skills">
+      <h2>{{ skill.section }}</h2>
+      <div>
+        <app-skill
+          *ngFor="let item of skill.content"
+          [name]="item.name"
+          [level]="item.level"
+          [icon]="item.icon"
+        ></app-skill>
+      </div>
+    </section>
+  </div>
 </section>
 <app-bot></app-bot>
