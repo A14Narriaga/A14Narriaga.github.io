@@ -34,25 +34,28 @@
 
 .skills {
   max-width: 1024px;
-  height: 100vh;
   margin: 0 auto;
   h1 {
     color: var(--primary-color);
     font-size: 1.7rem;
+    margin-bottom: 1rem;
   }
   .s-cards {
+    display: grid;
+    gap: 1rem;
     .s-card {
-      padding: 2rem 0rem 0rem 0rem;
+      padding: 2rem 1.5rem 1.5rem;
       border-radius: 0.3rem;
       position: relative;
+      background-color: var(--card-color);
       h2 {
-        background-color: var(--background-color);
+        background-color: var(--card-color);
         width: max-content;
         line-height: 1;
         padding: 0.3rem 0.7rem;
         position: absolute;
         top: 1rem;
-        left: 1rem;
+        left: 2.5rem;
         color: var(--sub-text-color);
       }
       div {

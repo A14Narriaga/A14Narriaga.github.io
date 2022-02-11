@@ -4,7 +4,7 @@
   opacity: 0;
 }
 
-.mobile-nav-toggle {
+.mobile-nav {
   display: none;
 }
 .nav {
@@ -79,18 +79,23 @@
   }
 }
 @media (max-width: 680px) {
-  .mobile-nav-toggle {
-    display: block;
+  .mobile-nav {
     position: fixed;
-    background-color: transparent;
-    width: 1.6rem;
-    aspect-ratio: 1;
-    top: 1.5rem;
-    left: 1.5rem;
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--background-color-trasparent);
     z-index: 1001;
-    font-size: 1.5rem;
-    &:hover {
-      cursor: pointer;
+    .mobile-nav-toggle {
+      background-color: transparent;
+      width: 1.6rem;
+      aspect-ratio: 1;
+      top: 1.5rem;
+      left: 1.5rem;
+      font-size: 1.5rem;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
   .nav {
@@ -303,7 +308,8 @@
   }
 }
 @supports (backdrop-filter: blur(2rem)) {
-  .nav {
+  .nav,
+  .mobile-nav {
     backdrop-filter: blur(2rem);
   }
 }

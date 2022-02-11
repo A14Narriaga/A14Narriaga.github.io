@@ -13,7 +13,7 @@
   }
   .progress-bar {
     width: 100%;
-    background-color: #4b6065;
+    background-color: var(--aux-color);
     border-radius: 10rem;
     display: flex;
     align-items: center;
@@ -21,7 +21,7 @@
       background-color: var(--primary-color);
       width: 100%;
       max-width: calc(var(--val) * 1%);
-      height: 0.4rem;
+      height: 0.3rem;
       border-radius: 10rem;
     }
   }
