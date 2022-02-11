@@ -10,6 +10,5 @@ export class SkillComponent {
 
   @Input() name: string = "name";
   @Input() level: number = 10;
-  @Input() icon: string = "fas fa-smile-beam";
 
 }
