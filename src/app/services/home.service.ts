@@ -66,7 +66,7 @@ export class HomeService {
       repo: 'https://github.com/A14Narriaga/langtons-ant',
       title: 'Hormiga de Langton',
       description: 'Simulación creada durante mi último semestre en la carrera usando React para manejar la interfaz gráfica, así como Rust del lado del Backend implementando WebAssembly.para así dar vida a esta interesante aplicación.',
-      tools: ['HTML5', 'React', 'SASS', 'TypeScript']
+      tools: ['React', 'HTML5', 'SASS', 'Rust', 'TypeScript', 'WebAssembly']
     },
     {
       year: '2021',

@@ -21,10 +21,9 @@
       </p>
     </main>
     <footer>
-      <i class="fab fa-react"></i>
-      <i class="fab fa-html5"></i>
-      <i class="fab fa-sass"></i>
-      <i class="fab fa-node-js"></i>
+      <ng-container *ngFor="let item of project.tools">
+        <app-icon [name]="item"></app-icon>
+      </ng-container>
     </footer>
   </a>
 </section>
