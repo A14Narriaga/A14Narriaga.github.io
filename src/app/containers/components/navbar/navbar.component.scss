@@ -12,6 +12,7 @@
   width: 100%;
   padding: 1rem;
   z-index: 100;
+  background-color: var(--background-color-trasparent);
   nav {
     max-width: 1024px;
     margin: 0 auto;
@@ -99,7 +100,6 @@
     }
   }
   .nav {
-    background-color: var(--background-color-trasparent);
     position: fixed;
     width: auto;
     padding: min(25vh, 20rem) 2rem;

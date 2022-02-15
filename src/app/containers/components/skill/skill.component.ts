@@ -8,7 +8,6 @@ import { Component, Input } from '@angular/core';
 
 export class SkillComponent {
 
-  @Input() name: string = "name";
-  @Input() level: number = 10;
+  @Input() skill: any = [];
 
 }

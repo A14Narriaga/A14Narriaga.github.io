@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-card-project',
   templateUrl: './card-project.component.html',
   styleUrls: ['./card-project.component.scss']
 })
-export class CardProjectComponent implements OnInit {
 
-  constructor() { }
+export class CardProjectComponent {
 
-  ngOnInit(): void {
-  }
+  @Input() project: any = [];
 
 }

@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-card-certification',
   templateUrl: './card-certification.component.html',
   styleUrls: ['./card-certification.component.scss']
 })
-export class CardCertificationComponent implements OnInit {
 
-  constructor() { }
+export class CardCertificationComponent {
 
-  ngOnInit(): void {
-  }
+  @Input() certification: any = [];
 
 }

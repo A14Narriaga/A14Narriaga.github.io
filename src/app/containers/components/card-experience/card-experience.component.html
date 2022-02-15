@@ -1,30 +1,16 @@
 <section class="card">
   <header>
     <div class="title">
-      <p class="work">LALEO</p>
-      <p class="job">Desarollador Fullstack</p>
+      <p class="work">{{ experience.company }}</p>
+      <p class="job">{{ experience.position }}</p>
     </div>
     <i class="fas fa-external-link-alt"></i>
   </header>
   <main>
-    <p>AGO 2021 - Presente</p>
+    <p>{{ experience.date }}</p>
     <ul>
-      <li>
-        Escribiendo codigo moderno y mantenible para diversos proyectos internos
-        enfocados a consumidores asi como brindando apoyo en el area de diseño.
-      </li>
-      <li>
-        Trabajando con una variedad de diferentes lenguajes y frameworks como
-        JavaScript, TypeScript, React, Angular, Materialize, etc, asi como MySQL
-        y Redis como manejadores de base de datos.
-      </li>
-      <li>
-        Estableciendo una comunicacion con equipos multidisiplinarios como
-        diseñadores e ingenieros.
-      </li>
-      <li>
-        Implementando Jira y Assana para gestionar proyectos, usando la
-        metodologia agil SCRUM.
+      <li *ngFor="let item of experience.learning">
+        {{ item }}
       </li>
     </ul>
   </main>

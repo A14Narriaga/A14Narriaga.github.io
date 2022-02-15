@@ -15,11 +15,17 @@ export class HomeComponent implements OnInit {
   themeDark: any;
   about = "Ingeniero en sistemas computacionales, especializado en construir y ocasionalmente diseñar excepcionales experiencias digitales. Buscando crear la mejor versión de mí, amante de aprender, compartir conocimiento y dejar huella.";
   skills: any = [];
+  projects: any = [];
+  certifications: any = [];
+  experiences: any = [];
 
   constructor(private service: HomeService) { }
 
   ngOnInit(): void {
     this.skills = this.service.getSkills();
+    this.projects = this.service.getProjects();
+    this.certifications = this.service.getCertifications();
+    this.experiences = this.service.getExperience();
     const currentHour = new Date().getHours();
     this.themeDark = sessionStorage.getItem('themeDark') === null
       ? !(currentHour >= 7 && currentHour <= 19)
