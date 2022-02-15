@@ -6,6 +6,13 @@ import { Injectable } from '@angular/core';
 
 export class HomeService {
 
+  getInfo = () => ({
+    hello: 'Hola, mi nombre es',
+    name: 'ALAN',
+    lastname: 'ARRIAGA',
+    about: 'Ingeniero en sistemas computacionales, especializado en construir y ocasionalmente diseñar excepcionales experiencias digitales. Buscando crear la mejor versión de mí, amante de aprender, compartir conocimiento y dejar huella.'
+  })
+
   getSkills = () => [
     {
       section: "Fontend",

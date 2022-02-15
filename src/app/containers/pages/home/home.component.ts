@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   loading = true;
   themeDark: any;
-  about = "Ingeniero en sistemas computacionales, especializado en construir y ocasionalmente diseñar excepcionales experiencias digitales. Buscando crear la mejor versión de mí, amante de aprender, compartir conocimiento y dejar huella.";
+  info: any = [];
   skills: any = [];
   projects: any = [];
   certifications: any = [];
@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   constructor(private service: HomeService) { }
 
   ngOnInit(): void {
+    this.info = this.service.getInfo();
     this.skills = this.service.getSkills();
     this.projects = this.service.getProjects();
     this.certifications = this.service.getCertifications();
@@ -36,21 +37,21 @@ export class HomeComponent implements OnInit {
     // document.getElementById('colorBg')?.setAttribute('data-dark', `${this.themeDark}`)
     setTimeout(() => {
       this.loading = false
-      this.typeText()
+      this.typeText(this.info.about)
     }, 2500);
   }
 
-  typeText() {
+  typeText(text: string) {
     let i = 0;
     let sentence = "";
     const putLetter = () => {
-      if (i === this.about.length) return;
-      sentence += this.about[i];
-      sentence += this.about[i - 1] === '.' ? '\n' : '';
+      if (i === text.length) return;
+      sentence += text[i];
+      sentence += text[i - 1] === '.' ? '\n' : '';
       setTimeout(() =>
         this.refTextP.nativeElement.innerText = sentence + " |", 0
       );
-      setTimeout(putLetter, this.about[i] === '.' ? 600 : 30);
+      setTimeout(putLetter, text[i] === '.' ? 600 : 30);
       i++;
     }
     putLetter();

@@ -1,11 +1,13 @@
-<!-- <app-loader *ngIf="loading"></app-loader> -->
+<app-loader *ngIf="loading"></app-loader>
 <app-navbar [_isDark]="themeDark"></app-navbar>
 <main>
   <section class="about">
     <div class="info">
       <div>
-        <p>Hola, mi nombre es</p>
-        <h1>ALAN <span>ARRIAGA</span></h1>
+        <p>{{ info.hello }}</p>
+        <h1>
+          {{ info.name }} <span>{{ info.lastname }}</span>
+        </h1>
       </div>
       <p #textP></p>
     </div>
