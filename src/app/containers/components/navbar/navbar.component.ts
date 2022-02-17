@@ -8,20 +8,14 @@ import { Component, ViewChild, ElementRef, Input } from '@angular/core';
 
 export class NavbarComponent {
 
-  @Input() set _isDark(isDark: boolean) {
-    setTimeout(
-      () => this.refThemeIcon.nativeElement
-        .setAttribute('data-dark', `${!isDark}`)
-      , 0
-    );
-  }
+  @Input() set _isDark(isDark: boolean) { this.isDark = !isDark; }
 
   @ViewChild('nav') refNav!: ElementRef<HTMLDivElement>
-  @ViewChild('soundIcon') refSoundIcon!: ElementRef<SVGElement>
-  @ViewChild('themeIcon') refThemeIcon!: ElementRef<SVGElement>
-  @ViewChild('languageIcon') refLanguageIcon!: ElementRef<SVGElement>
 
   isOpen = true;
+  isDark = true;
+  isES = true;
+  isOn = false;
 
   toggleNav() {
     const nav = this.refNav.nativeElement;
@@ -30,24 +24,18 @@ export class NavbarComponent {
   }
 
   toggleSound() {
-    const soundIcon = this.refSoundIcon.nativeElement;
-    const isOn = soundIcon.getAttribute('data-sound') === 'true';
-    soundIcon.setAttribute('data-sound', `${!isOn}`);
+    this.isOn = !this.isOn;
   }
 
   toggleTheme() {
-    const themeIcon = this.refThemeIcon.nativeElement;
-    const isDark = document.body.classList.contains('dark');
-    themeIcon.setAttribute('data-dark', `${isDark}`)
+    this.isDark = document.body.classList.contains('dark');
     document.body.classList.toggle('dark');
     // document.getElementById('colorBg')?.setAttribute('data-dark', `${!isDark}`);
-    sessionStorage.setItem('themeDark', `${!isDark}`);
+    sessionStorage.setItem('themeDark', `${!this.isDark}`);
   }
 
   toggleLanguage() {
-    const languageIcon = this.refLanguageIcon.nativeElement;
-    const isEs = languageIcon.getAttribute('data-es') === 'true';
-    languageIcon.setAttribute('data-es', `${!isEs}`)
+    this.isES = !this.isES;
   }
 
 }

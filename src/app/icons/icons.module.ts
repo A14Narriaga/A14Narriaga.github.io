@@ -22,7 +22,9 @@ import { IconLaTeXComponent } from './components/IconLaTeX.component';
 import { IconRustComponent } from './components/IconRust.component';
 import { IconWebAssemblyComponent } from './components/IconWebAssembly.component';
 import { IconMenuComponent } from './components/IconMenu.component';
-
+import { IconThemeComponent } from './components/IconTheme.component';
+import { IconLanguageComponent } from './components/IconLanguage.component';
+import { IconSoundComponent } from './components/IconSound.component';
 import { IconComponent } from './icon.component';
 
 @NgModule({
@@ -49,11 +51,17 @@ import { IconComponent } from './icon.component';
     IconRustComponent,
     IconWebAssemblyComponent,
     IconMenuComponent,
+    IconThemeComponent,
+    IconLanguageComponent,
+    IconSoundComponent,
     IconComponent
   ],
   exports: [
-    IconComponent,
-    IconMenuComponent
+    IconMenuComponent,
+    IconThemeComponent,
+    IconLanguageComponent,
+    IconSoundComponent,
+    IconComponent
   ]
 })
 

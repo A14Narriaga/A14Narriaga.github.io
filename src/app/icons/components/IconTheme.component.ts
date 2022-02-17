@@ -28,10 +28,8 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core';
     </svg>`,
   styles: [`
     .theme-icon {
-      width: 1.4rem;
-      aspect-ratio: 1;
-      fill: var(--navbar-text-color);
-      transition: fill 0.2s cubic-bezier(1, -0.01, 0, 1.11);
+      width: 100%;
+      height: 100%;
       #moon,#sun,#sun-rays {
         transition: transform 350ms cubic-bezier(1, -0.32, 0, 1.44);
       }
