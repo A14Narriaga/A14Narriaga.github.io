@@ -17,17 +17,16 @@ export class NavbarComponent {
   }
 
   @ViewChild('nav') refNav!: ElementRef<HTMLDivElement>
-  @ViewChild('menuIcon') refMenuIcon!: ElementRef<SVGElement>
   @ViewChild('soundIcon') refSoundIcon!: ElementRef<SVGElement>
   @ViewChild('themeIcon') refThemeIcon!: ElementRef<SVGElement>
   @ViewChild('languageIcon') refLanguageIcon!: ElementRef<SVGElement>
 
+  isOpen = true;
+
   toggleNav() {
     const nav = this.refNav.nativeElement;
-    const menuIcon = this.refMenuIcon.nativeElement;
-    const isOpen = nav.getAttribute('data-visible') === 'true';
-    nav.setAttribute('data-visible', `${!isOpen}`);
-    menuIcon.setAttribute('data-close', `${!isOpen}`);
+    this.isOpen = nav.getAttribute('data-visible') === 'true';
+    nav.setAttribute('data-visible', `${!this.isOpen}`);
   }
 
   toggleSound() {

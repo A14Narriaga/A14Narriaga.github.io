@@ -177,34 +177,6 @@
   }
 }
 
-.menu-icon {
-  #top,
-  #middle,
-  #bottom {
-    transition: transform 350ms cubic-bezier(1, -0.32, 0, 1.44);
-    fill: var(--primary-color);
-  }
-  #top {
-    transform-origin: top left;
-  }
-  #middle {
-    transform-origin: center center;
-  }
-  #bottom {
-    transform-origin: bottom right;
-  }
-}
-.menu-icon[data-close="true"] {
-  #top {
-    transform: rotate(45deg) translateX(15%) translateY(-15%);
-  }
-  #middle {
-    transform: rotate(-45deg);
-  }
-  #bottom {
-    transform: rotate(45deg) translateX(-15%) translateY(15%);
-  }
-}
 .sound-icon {
   width: 1.5rem;
   aspect-ratio: 1;
@@ -282,6 +254,7 @@
     transform: rotate(-90deg) scale(0);
   }
 }
+
 .language-icon {
   width: 1.6rem;
   aspect-ratio: 1;

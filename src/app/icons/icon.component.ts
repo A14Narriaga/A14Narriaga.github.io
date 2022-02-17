@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-icon',
   template: `
-  <div class="icon" [ngSwitch]="name">
+  <div [ngSwitch]="name">
     <icon-angular *ngSwitchCase="'Angular'"></icon-angular>
     <icon-react *ngSwitchCase="'React'"></icon-react>
     <icon-javascript *ngSwitchCase="'JavaScript'"></icon-javascript>
@@ -25,15 +25,11 @@ import { Component, Input } from '@angular/core';
     <icon-rust *ngSwitchCase="'Rust'"></icon-rust>
     <icon-web-assembly *ngSwitchCase="'WebAssembly'"></icon-web-assembly>
   </div>`,
-  styles: [`
-    .icon {
-      width: 1.5rem;
-      height: 1.5rem;
-    }
-  `]
+  styles: [``]
 })
+
 export class IconComponent {
 
-  @Input() name: string = 'Angular';
+  @Input() name: string = '';
 
 }

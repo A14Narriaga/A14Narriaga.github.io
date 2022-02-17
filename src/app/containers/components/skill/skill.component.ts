@@ -10,4 +10,10 @@ export class SkillComponent {
 
   @Input() skill: any = [];
 
+  styles = {
+    "fill": "var(--primary-color)",
+    "width": "1.5rem",
+    "height": "1.5rem",
+  }
+
 }

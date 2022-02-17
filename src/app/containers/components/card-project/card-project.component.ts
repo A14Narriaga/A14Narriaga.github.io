@@ -10,4 +10,10 @@ export class CardProjectComponent {
 
   @Input() project: any = [];
 
+  styles = {
+    "fill": "var(--sub-text-color)",
+    "width": "1.4rem",
+    "height": "1.4rem",
+  }
+
 }

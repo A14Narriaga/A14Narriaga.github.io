@@ -21,6 +21,8 @@ import { IconVimComponent } from './components/IconVim.component';
 import { IconLaTeXComponent } from './components/IconLaTeX.component';
 import { IconRustComponent } from './components/IconRust.component';
 import { IconWebAssemblyComponent } from './components/IconWebAssembly.component';
+import { IconMenuComponent } from './components/IconMenu.component';
+
 import { IconComponent } from './icon.component';
 
 @NgModule({
@@ -46,9 +48,13 @@ import { IconComponent } from './icon.component';
     IconLaTeXComponent,
     IconRustComponent,
     IconWebAssemblyComponent,
+    IconMenuComponent,
     IconComponent
   ],
-  exports: [IconComponent]
+  exports: [
+    IconComponent,
+    IconMenuComponent
+  ]
 })
 
 export class IconsModule { }
