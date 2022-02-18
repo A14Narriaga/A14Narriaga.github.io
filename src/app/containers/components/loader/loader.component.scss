@@ -8,77 +8,7 @@
   width: 100vw;
   height: 100vh;
   z-index: 9999;
-  svg {
+  .icon {
     width: 8rem;
   }
 }
-#circle-gray,
-#A-gray {
-  fill: var(--logo-secondary);
-}
-#circle-cyan,
-#A-cyan {
-  fill: var(--logo-primary);
-}
-#circle-gray {
-  animation: anim-cg 2s cubic-bezier(0.97, -0.01, 0, 0.99) infinite 1s;
-}
-#circle-cyan {
-  animation: anim-cc 2s cubic-bezier(0.97, -0.01, 0, 0.99) infinite;
-}
-#A-gray,
-#A-cyan {
-  animation: anim-l 2s infinite;
-}
-@keyframes anim-cg {
-  0% {
-    opacity: 0;
-    transform-origin: center center;
-    transform: scale(0.5);
-  }
-  100% {
-    opacity: 1;
-    transform-origin: center center;
-    transform: scale(1);
-  }
-}
-
-@keyframes anim-cc {
-  0% {
-    opacity: 0;
-    transform-origin: center center;
-    transform: scale(0.5);
-  }
-  100% {
-    opacity: 1;
-    transform-origin: center center;
-    transform: scale(1);
-  }
-}
-
-@keyframes anim-l {
-  0% {
-    transform-origin: center center;
-    transform: scale(0.8);
-  }
-  25% {
-    transform-origin: center center;
-    transform: scale(0.8);
-  }
-  30% {
-    transform-origin: center center;
-    transform: scale(1);
-  }
-  50% {
-    transform-origin: center center;
-    transform: scale(0.9);
-  }
-  70% {
-    transform-origin: center center;
-    transform: scale(1);
-  }
-  100% {
-    transform-origin: center center;
-    transform: scale(0.8);
-  }
-} ;
