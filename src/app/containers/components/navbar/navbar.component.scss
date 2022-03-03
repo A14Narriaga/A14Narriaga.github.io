@@ -109,6 +109,7 @@
     inset: 0 30% 0 0;
     z-index: 1000;
     transition: transform 350ms ease-in;
+    transition-delay: 600ms;
     transform: translateX(-100%);
     nav {
       flex-direction: column-reverse;
@@ -152,6 +153,7 @@
   }
   .nav[data-visible="true"] {
     transform: translateX(0%);
+    transition-delay: 0ms;
     nav {
       .configs {
         @include fadeRightIn;

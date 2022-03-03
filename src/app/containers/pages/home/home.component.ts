@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Observable } from 'rxjs';
 import { HomeService } from '../../../services/home.service';
 
 @Component({
@@ -11,8 +12,9 @@ export class HomeComponent implements OnInit {
 
   @ViewChild('textP') refTextP!: ElementRef<HTMLParagraphElement>;
 
-  loading = true;
-  themeDark: any;
+  loading$!: Observable<boolean>;
+  dataSubs: any;
+  theme: any;
   info: any = [];
   skills: any = [];
   projects: any = [];
@@ -22,23 +24,48 @@ export class HomeComponent implements OnInit {
   constructor(private service: HomeService) { }
 
   ngOnInit(): void {
-    this.info = this.service.getInfo();
-    this.skills = this.service.getSkills();
-    this.projects = this.service.getProjects();
-    this.certifications = this.service.getCertifications();
-    this.experiences = this.service.getExperience();
-    const currentHour = new Date().getHours();
-    this.themeDark = sessionStorage.getItem('themeDark') === null
-      ? !(currentHour >= 7 && currentHour <= 19)
-      : sessionStorage.getItem('themeDark') === 'true';
-    this.themeDark
+    this.theme = this.service.getTheme();
+    this.theme === 'dark'
       ? document.body.classList.add('dark')
       : document.body.classList.remove('dark');
-    // document.getElementById('colorBg')?.setAttribute('data-dark', `${this.themeDark}`)
-    setTimeout(() => {
-      this.loading = false
-      this.typeText(this.info.about)
-    }, 2500);
+    this.service.getData();
+    this.loading$ = this.service.loading$;
+    this.setScrollAnimations();
+    this.dataSubs = this.service.data$.subscribe(
+      data => {
+        this.info = data[0];
+        this.skills = data[1];
+        this.projects = data[2];
+        this.certifications = data[3];
+        this.experiences = data[4];
+        this.typeText(this.info.about);
+      }
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.dataSubs.complete();
+  }
+
+  setScrollAnimations() {
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = {
+      threshold: 1,
+    };
+    const appearOnScroll = new IntersectionObserver(
+      (entries, appearOnScroll) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          else {
+            entry.target.classList.add('appear');
+            appearOnScroll.unobserve(entry.target);
+          }
+        })
+      }, appearOptions
+    )
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    })
   }
 
   typeText(text: string) {
@@ -56,5 +83,4 @@ export class HomeComponent implements OnInit {
     }
     putLetter();
   }
-
 }

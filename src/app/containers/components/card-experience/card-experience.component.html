@@ -1,17 +1,19 @@
 <section class="card">
-  <header>
-    <div class="title">
-      <p class="work">{{ experience.company }}</p>
-      <p class="job">{{ experience.position }}</p>
-    </div>
-    <i class="fas fa-external-link-alt"></i>
-  </header>
-  <main>
-    <p>{{ experience.date }}</p>
-    <ul>
-      <li *ngFor="let item of experience.learning">
-        {{ item }}
-      </li>
-    </ul>
-  </main>
+  <a [href]="experience.link" target="blank">
+    <header>
+      <div class="title">
+        <p class="work">{{ experience.company }}</p>
+        <p class="job">{{ experience.position }}</p>
+      </div>
+      <i class="fas fa-external-link-alt"></i>
+    </header>
+    <main>
+      <p>{{ experience.date }}</p>
+      <ul>
+        <li *ngFor="let item of experience.learning">
+          {{ item }}
+        </li>
+      </ul>
+    </main>
+  </a>
 </section>

@@ -1,4 +1,5 @@
 import { Component, ViewChild, ElementRef, Input } from '@angular/core';
+import { HomeService } from 'src/app/services/home.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,14 +9,16 @@ import { Component, ViewChild, ElementRef, Input } from '@angular/core';
 
 export class NavbarComponent {
 
-  @Input() set _isDark(isDark: boolean) { this.isDark = !isDark; }
-
   @ViewChild('nav') refNav!: ElementRef<HTMLDivElement>
 
   isOpen = true;
   isDark = true;
   isES = true;
   isOn = false;
+
+  constructor(private service: HomeService) {
+    this.isDark = this.service.getTheme() !== 'dark';
+  }
 
   toggleNav() {
     const nav = this.refNav.nativeElement;
@@ -25,17 +28,19 @@ export class NavbarComponent {
 
   toggleSound() {
     this.isOn = !this.isOn;
+    this.toggleNav();
   }
 
   toggleTheme() {
-    this.isDark = document.body.classList.contains('dark');
+    this.isDark = this.service.changeTheme() !== 'dark';
     document.body.classList.toggle('dark');
-    // document.getElementById('colorBg')?.setAttribute('data-dark', `${!isDark}`);
-    sessionStorage.setItem('themeDark', `${!this.isDark}`);
+    this.toggleNav();
   }
 
   toggleLanguage() {
     this.isES = !this.isES;
+    this.service.changeLanguaje();
+    this.toggleNav();
   }
 
 }

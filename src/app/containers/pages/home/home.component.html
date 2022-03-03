@@ -1,5 +1,5 @@
-<app-loader *ngIf="loading"></app-loader>
-<app-navbar [_isDark]="themeDark"></app-navbar>
+<app-loader *ngIf="loading$ | async"></app-loader>
+<app-navbar></app-navbar>
 <main>
   <section class="about">
     <div class="info">
@@ -14,11 +14,11 @@
   </section>
 
   <section id="skills" class="section">
-    <h1>Habilidades</h1>
+    <h1>{{ skills.title }}</h1>
     <div class="grid" style="--col: 4">
       <section
         class="skill s{{ i }}"
-        *ngFor="let skill of skills; let i = index"
+        *ngFor="let skill of skills.data; let i = index"
       >
         <h2>{{ skill.section }}</h2>
         <div>
@@ -32,29 +32,29 @@
   </section>
 
   <section id="projects" class="section">
-    <h1>Proyectos</h1>
-    <div class="grid" style="--col: 3">
+    <h1 class="fade-in">{{ projects.title }}</h1>
+    <section class="grid" style="--col: 3">
       <app-card-project
-        *ngFor="let item of projects"
+        *ngFor="let item of projects.data"
         [project]="item"
       ></app-card-project>
-    </div>
+    </section>
   </section>
 
   <section id="certifications" class="section">
-    <h1>Certificaciones</h1>
-    <div class="grid" style="--col: 3">
+    <h1>{{ certifications.title }}</h1>
+    <section class="grid" style="--col: 3">
       <app-card-certification
-        *ngFor="let item of certifications"
+        *ngFor="let item of certifications.data"
         [certification]="item"
       ></app-card-certification>
-    </div>
+    </section>
   </section>
 
   <section id="experience" class="section">
-    <h1>Experience</h1>
+    <h1>{{ experiences.title }}</h1>
     <app-card-experience
-      *ngFor="let item of experiences"
+      *ngFor="let item of experiences.data"
       [experience]="item"
     ></app-card-experience>
   </section>

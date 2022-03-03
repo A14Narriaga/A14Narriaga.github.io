@@ -59,23 +59,6 @@
 }
 
 body {
+  transition: 30ms background-color ease;
   background-color: var(--background-color);
-  // z-index: -2;
 }
-
-// #colorBg {
-//   content: "";
-//   position: absolute;
-//   width: 100%;
-//   height: 100%;
-//   top: 0;
-//   right: 0;
-//   background-color: #232726;
-//   transition: clip-path 350ms ease-in;
-//   clip-path: circle(0% at 100% 0);
-//   z-index: -1;
-// }
-
-// #colorBg[data-dark="true"] {
-//   clip-path: circle(200% at 100% 0%);
-// }
