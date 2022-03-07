@@ -1,29 +1,27 @@
-<section class="card">
-  <a [href]="project.link" target="blank">
-    <header>
-      <div class="folder">
-        <i class="fas fa-folder"></i>
-        <span>{{ project.year }}</span>
-      </div>
-      <div class="links">
-        <a [href]="project.repo" target="blank">
-          <i class="fab fa-github"></i>
-        </a>
-        <a [href]="project.link" target="blank">
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    </header>
-    <main>
-      <p class="title">{{ project.title }}</p>
-      <p class="description">
-        {{ project.description }}
-      </p>
-    </main>
-    <footer>
-      <ng-container *ngFor="let item of project.tools">
-        <app-icon class="icon" [name]="item"></app-icon>
-      </ng-container>
-    </footer>
-  </a>
+<section class="card" (click)="openProject()">
+  <header>
+    <div class="folder">
+      <i class="fas fa-folder"></i>
+      <span>{{ project.year }}</span>
+    </div>
+    <div class="links">
+      <a [href]="project.repo" target="blank">
+        <i class="fab fa-github"></i>
+      </a>
+      <a [href]="project.link" target="blank">
+        <i class="fas fa-external-link-alt"></i>
+      </a>
+    </div>
+  </header>
+  <main>
+    <p class="title">{{ project.title }}</p>
+    <p class="description">
+      {{ project.description }}
+    </p>
+  </main>
+  <footer>
+    <ng-container *ngFor="let item of project.tools">
+      <app-icon class="icon" [name]="item"></app-icon>
+    </ng-container>
+  </footer>
 </section>

@@ -31,15 +31,24 @@
       margin-bottom: 0.5rem;
     }
     ul {
-      margin-left: 1rem;
       font-size: 1rem;
+      list-style: none;
       li {
+        display: flex;
+        align-items: flex-start;
         line-height: 1.2;
         margin-bottom: 0.5rem;
-        color: var(--sub-text-color);
-        list-style-type: "🔹";
-        // content: url(/heart.svg)
-        padding-inline-start: 0.5rem;
+        .item {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .icon {
+          fill: var(--primary-color);
+          width: 0.6rem;
+          height: 0.6rem;
+          margin-right: 0.6rem;
+        }
       }
     }
   }

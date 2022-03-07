@@ -10,4 +10,6 @@ export class CardExperienceComponent {
 
   @Input() experience: any = [];
 
+  openExperience = () => window.open(this.experience.link, '_blank');
+
 }

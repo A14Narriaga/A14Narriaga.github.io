@@ -10,4 +10,6 @@ export class CardProjectComponent {
 
   @Input() project: any = [];
 
+  openProject = () => window.open(this.project.link, '_blank');
+
 }

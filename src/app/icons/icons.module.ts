@@ -26,6 +26,7 @@ import { IconThemeComponent } from './components/IconTheme.component';
 import { IconLanguageComponent } from './components/IconLanguage.component';
 import { IconSoundComponent } from './components/IconSound.component';
 import { IconLogoComponent } from './components/IconLogo.component';
+import { IconItemComponent } from './components/IconItem.component';
 import { IconComponent } from './icon.component';
 
 @NgModule({
@@ -56,6 +57,7 @@ import { IconComponent } from './icon.component';
     IconLanguageComponent,
     IconSoundComponent,
     IconLogoComponent,
+    IconItemComponent,
     IconComponent
   ],
   exports: [
@@ -64,6 +66,7 @@ import { IconComponent } from './icon.component';
     IconLanguageComponent,
     IconSoundComponent,
     IconLogoComponent,
+    IconItemComponent,
     IconComponent
   ]
 })

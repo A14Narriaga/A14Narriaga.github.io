@@ -175,3 +175,40 @@ export class BotComponent {
   }
 
 }
+
+// userOptions = [
+//   { type: 'usr', msg: '¡Solo quiero saludar 🖐!', icon: '' },
+//   { type: 'usr', msg: '¡Me gustaría contactar a Alan!', icon: '' },
+//   { type: 'usr', msg: '¡Me gustaría ver el CV de Alan!', icon: '' },
+// ];
+// welcome = [
+//   { type: 'bot', msg: '¡Hola humano 😀!', icon: '' },
+//   { type: 'bot', msg: 'Alan Bot 🤖 a tu servicio', icon: '' },
+//   { type: 'bot', msg: '¿Comó puedo ayudarte?', icon: '' },
+// ];
+// yesNoQuestion = [
+//   { type: 'usr', msg: 'Si', icon: '' },
+//   { type: 'usr', msg: 'No', icon: '' },
+// ];
+// answers = new Map([
+//   ['¡Solo quiero saludar 🖐!', [
+//     { type: 'bot', msg: '¡Gracias por saludar y visitar el sitio 😋!', icon: '' },
+//     { type: 'bot', msg: '¡Espero te encuentres bien 😊!', icon: '' },
+//     { type: 'bot', msg: '¿Puedo ayudarte con algo más?', icon: '' },
+//   ]],
+//   ['¡Me gustaría contactar a Alan!', [
+//     { type: 'bot', msg: '¡Perfecto!', icon: '' },
+//     { type: '?', msg: '¿Te gustaría enviarle un mensaje para que puedan charlar?', icon: '' },
+//   ]],
+//   ['¡Me gustaría ver el CV de Alan!', [
+//     { type: 'bot', msg: '¡Claro!', icon: '' },
+//     { type: 'bot', msg: '¡Le alegrará saber que estas interesado en su perfil!', icon: '' },
+//     { type: 'bot', msg: 'Alan CV', icon: 'download' },
+//     { type: 'bot', msg: '¿Puedo ayudarte con algo más?', icon: '' },
+//   ]],
+//   ['No, gracias 😅', [
+//     { type: 'bot', msg: 'De acuerdo', icon: '' },
+//     { type: 'bot', msg: 'Espero haberte ayudado', icon: '' },
+//     { type: 'bot', msg: 'Hasta pronto 👋', icon: '' },
+//   ]]
+// ]);
