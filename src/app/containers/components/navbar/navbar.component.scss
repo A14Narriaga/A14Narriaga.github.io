@@ -104,12 +104,11 @@
   }
   .nav {
     position: fixed;
-    width: auto;
+    width: 100%;
     padding: min(25vh, 20rem) 2rem;
-    inset: 0 30% 0 0;
     z-index: 1000;
-    transition: transform 350ms ease-in;
-    transition-delay: 600ms;
+    transition: transform 350ms ease;
+    transition-delay: 500ms;
     transform: translateX(-100%);
     nav {
       flex-direction: column-reverse;

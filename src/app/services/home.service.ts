@@ -27,7 +27,7 @@ export class HomeService {
     title: this.language === 'es' ? 'Habilidades' : 'Skills',
     data: [
       {
-        section: "Fontend",
+        section: "Frontend",
         content: [
           { name: "Angular", level: 64 },
           { name: "React", level: 33 },

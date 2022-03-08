@@ -13,7 +13,7 @@ export class NavbarComponent {
 
   isOpen = true;
   isDark = true;
-  isES = true;
+  isES = false;
   isOn = false;
 
   constructor(private service: HomeService) {
