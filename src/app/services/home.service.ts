@@ -8,11 +8,26 @@ import { BehaviorSubject } from 'rxjs';
 export class HomeService {
 
   private language = this.getSessionItem('language', 'es');
-
   private loading = new BehaviorSubject<boolean>(false);
   loading$ = this.loading.asObservable();
   private data = new BehaviorSubject<any>([]);
   data$ = this.data.asObservable();
+
+  private getNavOpts = () =>
+    this.language === 'es'
+      ? [
+        { key: 'skills', title: 'Habilidades' },
+        { key: 'certifications', title: 'Certificaciones' },
+        { key: 'projects', title: 'Proyectos' },
+        { key: 'experience', title: 'Experiencia' },
+        { key: 'blogs', title: 'Blogs' }
+      ] : [
+        { key: 'skills', title: 'Skills' },
+        { key: 'certifications', title: 'Certifications' },
+        { key: 'projects', title: 'Projects' },
+        { key: 'experience', title: 'Experience' },
+        { key: 'blogs', title: 'Blogs' }
+      ];
 
   private getInfo = () => ({
     hello: this.language === 'es' ? 'Hola, mi nombre es' : 'Hi, my name is',
@@ -71,7 +86,6 @@ export class HomeService {
       }
     ]
   })
-
 
   private getProjects = () => ({
     title: this.language === 'es' ? 'Proyectos' : 'Projects',
@@ -136,6 +150,7 @@ export class HomeService {
   sendData(): void {
     setTimeout(() => {
       this.data.next([
+        this.getNavOpts(),
         this.getInfo(),
         this.getSkills(),
         this.getProjects(),
@@ -163,6 +178,7 @@ export class HomeService {
   changeLanguaje = (): string => {
     this.language = this.setSessionItem('language', this.language === 'es' ? 'en' : 'es');
     this.data.next([
+      this.getNavOpts(),
       this.getInfo(),
       this.getSkills(),
       this.getProjects(),

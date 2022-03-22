@@ -22,11 +22,7 @@
       </li>
     </ul>
     <ul class="links">
-      <li id="l0" (click)="toggleNav()"><a href="#skills">Habilidades</a></li>
-      <li id="l1" (click)="toggleNav()"><a href="#certifications">Certificaciones</a></li>
-      <li id="l2" (click)="toggleNav()"><a href="#projects">Proyectos</a></li>
-      <li id="l3" (click)="toggleNav()"><a href="#experience">Experiencia</a></li>
-      <li id="l4" (click)="toggleNav()"><a href="#blogs">Blogs</a></li>
+      <li *ngFor="let opt of navOpts; let i = index" id="l{{i}}" (click)="toggleNav()"><a href="#{{opt.key}}">{{opt.title}}</a></li>
     </ul>
     <ul class="configs">
       <li (click)="toggleLanguage()">

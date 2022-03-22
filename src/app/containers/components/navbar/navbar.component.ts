@@ -9,6 +9,8 @@ import { HomeService } from 'src/app/services/home.service';
 
 export class NavbarComponent {
 
+  @Input() navOpts: any = [];
+
   @ViewChild('nav') refNav!: ElementRef<HTMLDivElement>
 
   isOpen = true;

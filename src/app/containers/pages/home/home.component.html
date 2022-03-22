@@ -1,5 +1,5 @@
 <app-loader *ngIf="loading$ | async"></app-loader>
-<app-navbar></app-navbar>
+<app-navbar [navOpts]="navOpts" ></app-navbar>
 <main>
   <section class="about">
     <div class="info">

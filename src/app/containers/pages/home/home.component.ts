@@ -15,11 +15,13 @@ export class HomeComponent implements OnInit {
   loading$!: Observable<boolean>;
   dataSubs: any;
   theme: any;
+  navOpts: any = [];
   info: any = [];
   skills: any = [];
   projects: any = [];
   certifications: any = [];
   experiences: any = [];
+  timers: any = []
 
   constructor(private service: HomeService) { }
 
@@ -33,12 +35,16 @@ export class HomeComponent implements OnInit {
     this.setScrollAnimations();
     this.dataSubs = this.service.data$.subscribe(
       data => {
-        this.info = data[0];
-        this.skills = data[1];
-        this.projects = data[2];
-        this.certifications = data[3];
-        this.experiences = data[4];
-        this.typeText(this.info.about);
+        if (data.length !== 0) {
+          this.navOpts = data[0];
+          this.info = data[1];
+          this.skills = data[2];
+          this.projects = data[3];
+          this.certifications = data[4];
+          this.experiences = data[5];
+          this.stopTypeText();
+          this.typeText(this.info.about);
+        }
       }
     );
   }
@@ -68,17 +74,22 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  typeText(text: string) {
+  stopTypeText() {
+    clearTimeout(this.timers[0]);
+    clearTimeout(this.timers[1]);
+  }
+
+  typeText(text: string): void {
     let i = 0;
     let sentence = "";
     const putLetter = () => {
       if (i === text.length) return;
       sentence += text[i];
       sentence += text[i - 1] === '.' ? '\n' : '';
-      setTimeout(() =>
+      this.timers[0] = setTimeout(() =>
         this.refTextP.nativeElement.innerText = sentence + " |", 0
       );
-      setTimeout(putLetter, text[i] === '.' ? 600 : 30);
+      this.timers[1] = setTimeout(putLetter, text[i] === '.' ? 600 : 30);
       i++;
     }
     putLetter();
