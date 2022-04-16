@@ -16,16 +16,16 @@ export class HomeService {
   private getNavOpts = () =>
     this.language === 'es'
       ? [
+        { key: 'experience', title: 'Experiencia' },
+        { key: 'projects', title: 'Proyectos' },
         { key: 'skills', title: 'Habilidades' },
         { key: 'certifications', title: 'Certificaciones' },
-        { key: 'projects', title: 'Proyectos' },
-        { key: 'experience', title: 'Experiencia' },
         { key: 'blogs', title: 'Blogs' }
       ] : [
+        { key: 'experience', title: 'Experience' },
+        { key: 'projects', title: 'Projects' },
         { key: 'skills', title: 'Skills' },
         { key: 'certifications', title: 'Certifications' },
-        { key: 'projects', title: 'Projects' },
-        { key: 'experience', title: 'Experience' },
         { key: 'blogs', title: 'Blogs' }
       ];
 
@@ -46,8 +46,8 @@ export class HomeService {
         content: [
           { name: "Angular", level: 64 },
           { name: "React", level: 33 },
-          { name: "JavaScript", level: 64 },
-          { name: "TypeScript", level: 64 },
+          { name: "Java Script", level: 64 },
+          { name: "Type Script", level: 64 },
           { name: "HTML5", level: 64 },
           { name: "Pug", level: 64 },
           { name: "CSS3", level: 64 },
@@ -58,23 +58,27 @@ export class HomeService {
         section: "Backend",
         content: [
           { name: "NodeJS", level: 10 },
-          { name: "PHP", level: 10 }
-        ]
-      },
-      {
-        section: this.language === 'es' ? 'Bases de datos' : 'Databases',
-        content: [
+          { name: "PHP", level: 10 },
           { name: "MySQL", level: 64 },
-          { name: "Redis", level: 33 }
-        ]
-      },
-      {
-        section: this.language === 'es' ? 'Diseño' : 'Design',
-        content: [
+          { name: "Redis", level: 33 },
           { name: "Figma", level: 64 },
           { name: "Adobe XD", level: 33 }
         ]
       },
+      // {
+      //   section: this.language === 'es' ? 'Bases de datos' : 'Databases',
+      //   content: [
+      //     { name: "MySQL", level: 64 },
+      //     { name: "Redis", level: 33 }
+      //   ]
+      // },
+      // {
+      //   section: this.language === 'es' ? 'Diseño' : 'Design',
+      //   content: [
+      //     { name: "Figma", level: 64 },
+      //     { name: "Adobe XD", level: 33 }
+      //   ]
+      // },
       {
         section: this.language === 'es' ? 'Herramientas' : 'Tools',
         content: [

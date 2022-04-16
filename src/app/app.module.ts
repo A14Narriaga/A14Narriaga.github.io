@@ -15,6 +15,7 @@ import { NavbarComponent } from './containers/components/navbar/navbar.component
 import { ProfilePictureComponent } from './containers/components/profile-picture/profile-picture.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { IconsModule } from './icons/icons.module';
+import { SkillOrbitComponent } from './containers/components/skill-orbit/skill-orbit.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { IconsModule } from './icons/icons.module';
     CardBlogComponent,
     CodeComponent,
     NavbarComponent,
-    ProfilePictureComponent
+    ProfilePictureComponent,
+    SkillOrbitComponent
   ],
   imports: [
     BrowserModule,

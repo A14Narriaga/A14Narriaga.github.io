@@ -6,8 +6,8 @@ import { Component, Input } from '@angular/core';
   <div [ngSwitch]="name">
     <icon-angular *ngSwitchCase="'Angular'"></icon-angular>
     <icon-react *ngSwitchCase="'React'"></icon-react>
-    <icon-javascript *ngSwitchCase="'JavaScript'"></icon-javascript>
-    <icon-typescript *ngSwitchCase="'TypeScript'"></icon-typescript>
+    <icon-javascript *ngSwitchCase="'Java Script'"></icon-javascript>
+    <icon-typescript *ngSwitchCase="'Type Script'"></icon-typescript>
     <icon-html-5 *ngSwitchCase="'HTML5'"></icon-html-5>
     <icon-pug *ngSwitchCase="'Pug'"></icon-pug>
     <icon-css-3 *ngSwitchCase="'CSS3'"></icon-css-3>

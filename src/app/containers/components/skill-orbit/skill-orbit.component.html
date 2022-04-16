@@ -1,0 +1,15 @@
+<section class="orbit">
+  <div class="orbit-center">
+    <p>{{ skill.section }}</p>
+  </div>
+  <ul>
+    <li *ngFor="let s of skill.content">
+      <section>
+        <div class="icon">
+          <app-icon [name]="s.name"></app-icon>
+        </div>
+      </section>
+      <p>{{ s.name }}</p>
+    </li>
+  </ul>
+</section>

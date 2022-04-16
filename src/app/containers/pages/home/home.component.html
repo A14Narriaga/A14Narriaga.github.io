@@ -1,5 +1,5 @@
 <app-loader *ngIf="loading$ | async"></app-loader>
-<app-navbar [navOpts]="navOpts" ></app-navbar>
+<app-navbar [navOpts]="navOpts"></app-navbar>
 <main>
   <section class="about">
     <div class="info">
@@ -13,7 +13,25 @@
     </div>
   </section>
 
-  <section id="skills" class="section">
+  <section id="experience" class="section">
+    <h1>{{ experiences.title }}</h1>
+    <app-card-experience
+      *ngFor="let item of experiences.data"
+      [experience]="item"
+    ></app-card-experience>
+  </section>
+
+  <section id="projects" class="section">
+    <h1 class="fade-in">{{ projects.title }}</h1>
+    <section class="grid" style="--col: 3">
+      <app-card-project
+        *ngFor="let item of projects.data"
+        [project]="item"
+      ></app-card-project>
+    </section>
+  </section>
+
+  <!-- <section id="skills" class="section">
     <h1>{{ skills.title }}</h1>
     <div class="grid" style="--col: 4">
       <section
@@ -29,16 +47,16 @@
         </div>
       </section>
     </div>
-  </section>
+  </section> -->
 
-  <section id="projects" class="section">
-    <h1 class="fade-in">{{ projects.title }}</h1>
-    <section class="grid" style="--col: 3">
-      <app-card-project
-        *ngFor="let item of projects.data"
-        [project]="item"
-      ></app-card-project>
-    </section>
+  <section id="skills" class="section">
+    <h1>{{ skills.title }}</h1>
+    <div class="grid" style="--col: 3">
+      <app-skill-orbit
+        *ngFor="let skill of skills.data"
+        [skill]="skill"
+      ></app-skill-orbit>
+    </div>
   </section>
 
   <section id="certifications" class="section">
@@ -49,14 +67,6 @@
         [certification]="item"
       ></app-card-certification>
     </section>
-  </section>
-
-  <section id="experience" class="section">
-    <h1>{{ experiences.title }}</h1>
-    <app-card-experience
-      *ngFor="let item of experiences.data"
-      [experience]="item"
-    ></app-card-experience>
   </section>
 </main>
 <app-bot></app-bot>
