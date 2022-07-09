@@ -1,0 +1,50 @@
+$mobile-size: 680px;
+
+.about {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  .info {
+    background-color: var(--background-color-trasparent);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    max-width: var(--desktop);
+    margin: 0 auto;
+    div {
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      p {
+        font-family: "Fira Code", monospace;
+        font-size: 0.9rem;
+      }
+      h1 {
+        font-family: "Laila", sans-serif;
+        color: var(--primary-color);
+        font-size: 3.5rem;
+        font-weight: 300;
+        line-height: 0.9;
+        span {
+          font-family: "Laila", sans-serif;
+        }
+      }
+    }
+    p {
+      line-height: 1.2;
+      color: var(--sub-text-color);
+    }
+  }
+}
+
+@supports (backdrop-filter: blur(2rem)) {
+  .info {
+    backdrop-filter: blur(2rem);
+  }
+}
+
+@media (max-width: $mobile-size) {
+  .about {
+    padding: 2rem;
+  }
+}

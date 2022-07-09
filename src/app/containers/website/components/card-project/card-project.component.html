@@ -1,0 +1,34 @@
+<section class="card" (click)="openWindow($event, project.link)">
+  <div class="card-wrapper">
+    <header>
+      <div class="folder">
+        <app-icon name="Folder"></app-icon>
+        <span>{{ project.year }}</span>
+      </div>
+      <div class="links">
+        <i
+          class="fa-brands fa-github"
+          (click)="openWindow($event, project.repo)"
+        ></i>
+        <i
+          class="fa-solid fa-arrow-up-right-from-square"
+          (click)="openWindow($event, project.link)"
+        ></i>
+      </div>
+    </header>
+    <main>
+      <p class="title">{{ project.title }}</p>
+      <p class="description">
+        {{ project.description }}
+      </p>
+    </main>
+  </div>
+  <div>
+    <footer>
+      <ng-container *ngFor="let item of project.tools">
+        <app-icon class="tool" [name]="item"></app-icon>
+      </ng-container>
+    </footer>
+    <p class="status">{{ project.status | uppercase }}</p>
+  </div>
+</section>

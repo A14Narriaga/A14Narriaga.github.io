@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { IconFolderComponent } from './components/IconFolder.component';
 import { IconAngularComponent } from './components/IconAngular.component';
 import { IconReactComponent } from './components/IconReact.component';
 import { IconJavaScriptComponent } from './components/IconJavaScript.component';
@@ -32,6 +33,7 @@ import { IconComponent } from './icon.component';
 @NgModule({
   imports: [CommonModule],
   declarations: [
+    IconFolderComponent,
     IconAngularComponent,
     IconReactComponent,
     IconJavaScriptComponent,

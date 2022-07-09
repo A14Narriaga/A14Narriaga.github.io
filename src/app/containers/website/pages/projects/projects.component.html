@@ -1,0 +1,8 @@
+<section class="page">
+  <div class="grid" style="--col: 3">
+    <app-card-project
+      *ngFor="let item of projects"
+      [project]="item"
+    ></app-card-project>
+  </div>
+</section>

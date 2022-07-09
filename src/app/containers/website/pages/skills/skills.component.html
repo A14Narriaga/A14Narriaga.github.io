@@ -1,0 +1,22 @@
+<!-- <section class="page">
+  <div class="grid" style="--col: 4">
+    <section class="skill s{{ i }}" *ngFor="let skill of skills; let i = index">
+      <h2>{{ skill.section }}</h2>
+      <div>
+        <app-skill
+          *ngFor="let item of skill.content"
+          [skill]="item"
+        ></app-skill>
+      </div>
+    </section>
+  </div>
+</section> -->
+
+<section class="page">
+  <div class="grid" style="--col: 3">
+    <app-skill-orbit
+      *ngFor="let skill of skills"
+      [skill]="skill"
+    ></app-skill-orbit>
+  </div>
+</section>

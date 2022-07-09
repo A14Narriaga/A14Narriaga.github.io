@@ -1,0 +1,8 @@
+<section class="page">
+  <div class="grid" style="--col: 3">
+    <app-card-certification
+      *ngFor="let item of certifications"
+      [certification]="item"
+    ></app-card-certification>
+  </div>
+</section>

@@ -4,6 +4,7 @@ import { Component, Input } from '@angular/core';
   selector: 'app-icon',
   template: `
   <div [ngSwitch]="name">
+    <icon-folder *ngSwitchCase="'Folder'"></icon-folder>
     <icon-angular *ngSwitchCase="'Angular'"></icon-angular>
     <icon-react *ngSwitchCase="'React'"></icon-react>
     <icon-javascript *ngSwitchCase="'Java Script'"></icon-javascript>

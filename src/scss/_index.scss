@@ -1,0 +1,46 @@
+@forward "reset";
+@forward "colors";
+@forward "sizes";
+
+* {
+  font-family: "Baloo 2", cursive;
+  color: var(--text-color);
+}
+
+body {
+  transition: 30ms background-color ease;
+  background-color: var(--background-color);
+}
+
+::-webkit-scrollbar {
+  width: 0.4rem;
+  height: 0.4rem;
+}
+::-webkit-scrollbar-track {
+  background-color: trasparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scroll-color);
+  border-radius: 20rem;
+}
+
+.page {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding-top: 4rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(var(--col), 1fr);
+}
+
+@media (max-width: 1024px) {
+  .page {
+    padding: 4.5rem 2rem 2rem 2rem;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
