@@ -7,7 +7,6 @@ import { ProjectsComponent } from './pages/projects/projects.component';
 import { SkillsComponent } from './pages/skills/skills.component';
 import { CertificationsComponent } from './pages/certifications/certifications.component';
 import { ExperienceComponent } from './pages/experience/experience.component';
-import { BlogsComponent } from './pages/blogs/blogs.component';
 import { CardExperienceComponent } from './components/card-experience/card-experience.component';
 import { IconsModule } from '../../icons/icons.module';
 import { CardBlogComponent } from './components/card-blog/card-blog.component';
@@ -24,7 +23,6 @@ import { SkillOrbitComponent } from './components/skill-orbit/skill-orbit.compon
     SkillsComponent,
     CertificationsComponent,
     ExperienceComponent,
-    BlogsComponent,
     CardExperienceComponent,
     CardBlogComponent,
     CardProjectComponent,

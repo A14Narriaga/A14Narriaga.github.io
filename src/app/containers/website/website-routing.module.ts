@@ -6,7 +6,6 @@ import { ProjectsComponent } from './pages/projects/projects.component';
 import { SkillsComponent } from './pages/skills/skills.component';
 import { ExperienceComponent } from './pages/experience/experience.component';
 import { CertificationsComponent } from './pages/certifications/certifications.component';
-import { BlogsComponent } from './pages/blogs/blogs.component';
 
 const routes: Routes = [
   {
@@ -32,10 +31,6 @@ const routes: Routes = [
       {
         path: "certifications",
         component: CertificationsComponent
-      },
-      {
-        path: "blogs",
-        component: BlogsComponent
       }
     ]
   }
