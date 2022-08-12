@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import ConfigurationService from '../configuration/configuration.service';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,8 @@ export class WebsiteService {
   loading$ = this.loading.asObservable();
 
   constructor(
-    private service: ConfigurationService
+    private service: ConfigurationService,
+    private router: Router
   ) {
     setTimeout(() => {
       this.service.languaje$.subscribe(
@@ -31,6 +33,13 @@ export class WebsiteService {
       )
       this.loading.next(false)
     }, 2500);
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        event.url === '/'
+          ? document.body.classList.add('isHomePage')
+          : document.body.classList.remove('isHomePage')
+      }
+    });
   }
 
   private getNavOpts = (language: string) => [
@@ -38,7 +47,6 @@ export class WebsiteService {
     { key: 'projects', title: language === 'es' ? 'Proyectos' : 'Projects' },
     { key: 'skills', title: language === 'es' ? 'Habilidades' : 'Skills' },
     { key: 'certifications', title: language === 'es' ? 'Certificaciones' : 'Certifications' },
-    { key: 'blogs', title: 'Blogs' }
   ]
 
   private getWelcome = (language: string) => ({

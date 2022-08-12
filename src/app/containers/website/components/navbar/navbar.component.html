@@ -22,7 +22,11 @@
       </li>
     </ul>
     <ul class="links">
-      <icon-logo class="icon" [routerLink]="['']"></icon-logo>
+      <icon-logo
+        class="icon"
+        [routerLink]="['']"
+        (click)="toggleNav()"
+      ></icon-logo>
       <li
         *ngFor="let opt of navOpts; let i = index"
         id="l{{ i }}"

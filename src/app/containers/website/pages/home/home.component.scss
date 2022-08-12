@@ -1,11 +1,10 @@
-$mobile-size: 680px;
-
 .about {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
+  padding: 2rem;
   .info {
     background-color: var(--background-color-trasparent);
     padding: 1rem;
@@ -40,11 +39,5 @@ $mobile-size: 680px;
 @supports (backdrop-filter: blur(2rem)) {
   .info {
     backdrop-filter: blur(2rem);
-  }
-}
-
-@media (max-width: $mobile-size) {
-  .about {
-    padding: 2rem;
   }
 }

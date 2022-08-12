@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-matrix',
@@ -9,6 +9,8 @@ import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 export class MatrixComponent implements AfterViewInit {
 
   @ViewChild('canvas') refCanvas!: ElementRef<HTMLCanvasElement>;
+
+  @Input() colors = ['#00cbf8'];
 
   context!: CanvasRenderingContext2D;
   effect!: Effect;
@@ -28,13 +30,15 @@ export class MatrixComponent implements AfterViewInit {
     this.context = canvas.getContext('2d')!;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    this.gradient = this.context.createLinearGradient(0, 0, canvas.width, canvas.height);
-    this.gradient.addColorStop(0, 'red');
-    this.gradient.addColorStop(0.2, 'yellow');
-    this.gradient.addColorStop(0.4, 'green');
-    this.gradient.addColorStop(0.6, 'cyan');
-    this.gradient.addColorStop(0.8, 'blue');
-    this.gradient.addColorStop(1, 'magenta');
+    if (this.colors.length !== 1) {
+      this.gradient = this.context.createLinearGradient(0, 0, canvas.width, canvas.height);
+      let index = 0;
+      let increment = 1 / (this.colors.length - 1);
+      this.colors.map(c => {
+        this.gradient.addColorStop(index, c)
+        index += increment
+      });
+    }
     this.effect = new Effect(canvas.width, canvas.height);
     this.animate(0);
   }
@@ -46,8 +50,7 @@ export class MatrixComponent implements AfterViewInit {
       this.context.fillStyle = 'rgba(0, 0, 0, 0.05)';
       this.context.textAlign = 'center';
       this.context.fillRect(0, 0, this.refCanvas.nativeElement.width, this.refCanvas.nativeElement.height);
-      // this.context.fillStyle = '#0aff0a'
-      this.context.fillStyle = this.gradient;
+      this.context.fillStyle = this.colors.length !== 1 ? this.gradient : this.colors[0];
       this.context.font = `${this.effect.fontSize}px monospace`;
       this.effect.symbols.forEach(symbol => symbol.draw(this.context));
       this.timer = 0;

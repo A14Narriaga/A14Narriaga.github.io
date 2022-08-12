@@ -100,17 +100,17 @@
   .mobile-nav {
     position: fixed;
     width: 100%;
-    height: 4rem;
+    height: 3.5rem;
     background-color: var(--background-color-trasparent);
     z-index: 1000;
   }
   .mobile-nav-toggle {
     position: fixed;
     background-color: transparent;
-    width: 1.6rem;
+    width: 1.4rem;
     aspect-ratio: 1;
-    top: 1.3rem;
-    left: 1.5rem;
+    top: 1.1rem;
+    left: 1.3rem;
     z-index: 1001;
     &:hover {
       cursor: pointer;

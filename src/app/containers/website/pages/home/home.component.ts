@@ -9,6 +9,8 @@ import { WebsiteService } from '../../../../services/website/website.service';
 
 export class HomeComponent implements OnInit {
 
+  colors = [['blue'], ['cyan'], ['red'], ['purple']]
+  matrixColors = this.colors[Math.floor(Math.random() * this.colors.length)]
   hello: string = '';
   timers: any = [];
 

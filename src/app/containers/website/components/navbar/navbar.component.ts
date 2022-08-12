@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import ConfigurationService from '../../../../services/configuration/configuration.service';
 
 @Component({
@@ -7,7 +7,7 @@ import ConfigurationService from '../../../../services/configuration/configurati
   styleUrls: ['./navbar.component.scss']
 })
 
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
 
   @Input() navOpts: any = [];
 
