@@ -12,6 +12,10 @@ body {
   background-color: var(--background-color);
 }
 
+button {
+  background-color: transparent;
+}
+
 ::-webkit-scrollbar {
   width: 0.4rem;
   height: 0.4rem;

@@ -9,9 +9,10 @@ import { WebsiteService } from '../../../../services/website/website.service';
 
 export class HomeComponent implements OnInit {
 
-  colors = [['blue'], ['cyan'], ['red'], ['purple']]
-  matrixColors = this.colors[Math.floor(Math.random() * this.colors.length)]
+  colors = [['blue']]
+  currentColors = this.colors[Math.floor(Math.random() * this.colors.length)]
   hello: string = '';
+  resume: string = '';
   timers: any = [];
 
   @ViewChild('textP') refTextP!: ElementRef<HTMLParagraphElement>;
@@ -24,6 +25,7 @@ export class HomeComponent implements OnInit {
     this.websiteService.homeData$.subscribe(
       data => {
         if (JSON.stringify(data) !== '{}') {
+          this.resume = data.welcome.resume;
           this.hello = data.welcome.hello;
           this.stopTypeText();
           this.typeText(data.welcome.about);

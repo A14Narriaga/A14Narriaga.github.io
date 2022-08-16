@@ -1,4 +1,4 @@
-<app-matrix [colors]="matrixColors"></app-matrix>
+<app-matrix [colors]="currentColors"></app-matrix>
 
 <section class="about">
   <div class="info">
@@ -7,5 +7,9 @@
       <h1>ALAN <span>ARRIAGA</span></h1>
     </div>
     <p #textP></p>
+    <Button [text]="resume"></Button>
+  </div>
+  <div class="social">
+    <app-social></app-social>
   </div>
 </section>

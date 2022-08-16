@@ -50,6 +50,7 @@ export class WebsiteService {
   ]
 
   private getWelcome = (language: string) => ({
+    resume: language === 'es' ? 'Curriculum' : 'Resume',
     hello: language === 'es' ? 'Hola, mi nombre es' : 'Hi, my name is',
     about: language === 'es'
       ? 'Ingeniero en sistemas computacionales, especializado en construir y ocasionalmente diseñar excepcionales experiencias digitales. Buscando crear la mejor versión de mí, amante de aprender, compartir conocimiento y dejar huella.'

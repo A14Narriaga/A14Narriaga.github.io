@@ -8,12 +8,14 @@ import { SkillsComponent } from './pages/skills/skills.component';
 import { CertificationsComponent } from './pages/certifications/certifications.component';
 import { ExperienceComponent } from './pages/experience/experience.component';
 import { CardExperienceComponent } from './components/card-experience/card-experience.component';
-import { IconsModule } from '../../icons/icons.module';
+import { IconsModule } from '../../common/icons/icons.module';
 import { CardBlogComponent } from './components/card-blog/card-blog.component';
 import { CardProjectComponent } from './components/card-project/card-project.component';
 import { CardCertificationComponent } from './components/card-certification/card-certification.component';
 import { SkillComponent } from './components/skill/skill.component';
 import { SkillOrbitComponent } from './components/skill-orbit/skill-orbit.component';
+import { SocialComponent } from '../../common/components/social/social.component';
+import { AtomsModule } from '../../common/atoms/atoms.module';
 
 @NgModule({
   declarations: [
@@ -28,12 +30,14 @@ import { SkillOrbitComponent } from './components/skill-orbit/skill-orbit.compon
     CardProjectComponent,
     CardCertificationComponent,
     SkillComponent,
-    SkillOrbitComponent
+    SkillOrbitComponent,
+    SocialComponent
   ],
   imports: [
     CommonModule,
     WebsiteRoutingModule,
-    IconsModule
+    IconsModule,
+    AtomsModule
   ]
 })
 
