@@ -1,5 +1,3 @@
-import { ElementRef } from '@angular/core';
-
 export type methodTypes = 'get' | 'post' | 'patch' | 'put' | 'delete';
 
 export function downloadFile(name: string, type: string, data: any) {

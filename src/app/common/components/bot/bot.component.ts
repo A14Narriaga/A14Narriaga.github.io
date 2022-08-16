@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { WebsiteService } from '../../services/website/website.service';
+import { WebsiteService } from '../../../services/website/website.service';
 
 @Component({
   selector: 'app-bot',
