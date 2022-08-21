@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { WebsiteService } from '../../../services/website/website.service';
 
@@ -14,6 +14,8 @@ export class BotComponent {
     private formBuilder: FormBuilder,
     private service: WebsiteService
   ) { }
+
+  @Input() set _downloadResume(download: boolean | null) { download ? this.downloadResume() : null; }
 
   @ViewChild('bot') refBot!: ElementRef<HTMLDivElement>;
   @ViewChild('msgBot') refMsgBot!: ElementRef<HTMLDivElement>;
@@ -116,13 +118,14 @@ export class BotComponent {
     this.setScrollToButton();
   }
 
-  toggleBot() {
+  toggleBot(visible?: boolean) {
     const bot = this.refBot.nativeElement;
     bot.setAttribute(
-      'data-visible',
-      bot.getAttribute('data-visible') === 'false' ? 'true' : 'false'
+      'data-visible', visible
+      ? visible ? 'true' : 'false'
+      : bot.getAttribute('data-visible') === 'false' ? 'true' : 'false'
     )
-    this.openBot = !this.openBot;
+    this.openBot = visible ? visible : !this.openBot;
   }
 
   async toggleMsgBot() {
@@ -155,6 +158,23 @@ export class BotComponent {
       this.toggleBot();
       this.offPulse();
     }
+  }
+
+  downloadResume() {
+    setTimeout(async () => {
+      this.toggleBot(true);
+      this.offPulse();
+      this.conversation = [];
+      this.options.unshift({ bot: false, msg: 'No, gracias 😅', icon: '' });
+      this.options = this.userOptions.filter(uo => uo.msg !== '¡Me gustaría ver el CV de Alan!')
+      this.writting = true;
+      await this.addMessage('¡Hola humano 😀!', '');
+      await this.addMessage('¡A Alan le alegrará saber que estas interesado en su perfil!', '');
+      await this.addMessage('Alan CV', 'download');
+      await this.addMessage('¿Puedo ayudarte con algo más?', '');
+      this.writting = false;
+      this.setScrollToButton();
+    }, 0);
   }
 
   async send() {

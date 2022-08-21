@@ -26,6 +26,7 @@
         line-height: 0.9;
         span {
           font-family: "Laila", sans-serif;
+          color: var(--sub-text-color);
         }
       }
     }
@@ -36,7 +37,7 @@
     }
   }
   .social {
-    margin-top: 2rem;
+    margin-top: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;

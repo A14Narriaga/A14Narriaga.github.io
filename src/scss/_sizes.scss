@@ -2,4 +2,20 @@
   --mobile: 680px;
   --tablet: 1024px;
   --desktop: 1024px;
+  --displayHomeSocial: flex;
+}
+
+// Mobile
+@media (max-width: 680px) {
+  :root {
+    --displayHomeSocial: none;
+  }
+}
+
+// Tablet
+@media (max-width: 1024px) {
+}
+
+// Desktop
+@media (max-width: 1024px) {
 }

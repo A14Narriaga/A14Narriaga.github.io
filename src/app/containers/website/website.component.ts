@@ -9,7 +9,7 @@ import { WebsiteService } from '../../services/website/website.service';
     <app-loader *ngIf="loading$ | async"></app-loader>
     <app-navbar [navOpts]="navOpts"></app-navbar>
     <router-outlet></router-outlet>
-    <app-bot></app-bot>
+    <app-bot [_downloadResume]="botOnResume$ | async"></app-bot>
   `,
   styles: [``]
 })
@@ -17,6 +17,7 @@ import { WebsiteService } from '../../services/website/website.service';
 export class WebsiteComponent implements OnInit {
 
   loading$!: Observable<boolean>;
+  botOnResume$!: Observable<boolean>;
   navOpts: any = [];
 
   constructor(
@@ -26,6 +27,7 @@ export class WebsiteComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading$ = this.websiteService.loading$;
+    this.botOnResume$ = this.websiteService.botOnResume$;
     this.configService.loadTheme();
     this.websiteService.homeData$.subscribe(
       data => this.navOpts = data.navOpts

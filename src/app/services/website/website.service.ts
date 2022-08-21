@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import ConfigurationService from '../configuration/configuration.service';
-import { Router, NavigationEnd } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +12,11 @@ export class WebsiteService {
   homeData$ = this.homeData.asObservable();
   private loading = new BehaviorSubject<boolean>(true);
   loading$ = this.loading.asObservable();
+  private botOnResume = new BehaviorSubject<boolean>(false);
+  botOnResume$ = this.botOnResume.asObservable();
 
   constructor(
     private service: ConfigurationService,
-    private router: Router
   ) {
     setTimeout(() => {
       this.service.languaje$.subscribe(
@@ -33,13 +33,20 @@ export class WebsiteService {
       )
       this.loading.next(false)
     }, 2500);
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        event.url === '/'
-          ? document.body.classList.add('isHomePage')
-          : document.body.classList.remove('isHomePage')
-      }
-    });
+    // this.router.events.subscribe(event => {
+    //   if (event instanceof NavigationEnd) {
+    //     event.url === '/'
+    //       ? document.body.classList.add('isHomePage')
+    //       : document.body.classList.remove('isHomePage')
+    //   }
+    // });
+  }
+
+  openBotOnDownloadResume = () => {
+    this.botOnResume.next(true);
+    setTimeout(() => {
+      this.botOnResume.next(false);
+    }, 0);
   }
 
   private getNavOpts = (language: string) => [

@@ -6,8 +6,8 @@
       <p>{{ hello }}</p>
       <h1>ALAN <span>ARRIAGA</span></h1>
     </div>
-    <p #textP></p>
-    <Button [text]="resume"></Button>
+    <p #text></p>
+    <Button [text]="resume" (click)="openBotOnDownloadResume()"></Button>
   </div>
   <div class="social">
     <app-social></app-social>

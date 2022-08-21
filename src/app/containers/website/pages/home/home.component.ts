@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   resume: string = '';
   timers: any = [];
 
-  @ViewChild('textP') refTextP!: ElementRef<HTMLParagraphElement>;
+  @ViewChild('text') refText!: ElementRef<HTMLParagraphElement>;
 
   constructor(
     private websiteService: WebsiteService
@@ -47,12 +47,14 @@ export class HomeComponent implements OnInit {
       sentence += text[i];
       sentence += text[i - 1] === '.' ? '\n' : '';
       this.timers[0] = setTimeout(() =>
-        this.refTextP.nativeElement.innerText = sentence + " |", 0
+        this.refText.nativeElement.innerText = sentence + " |", 0
       );
       this.timers[1] = setTimeout(putLetter, text[i] === '.' ? 600 : 30);
       i++;
     }
     putLetter();
   }
+
+  openBotOnDownloadResume = () => this.websiteService.openBotOnDownloadResume();
 
 }

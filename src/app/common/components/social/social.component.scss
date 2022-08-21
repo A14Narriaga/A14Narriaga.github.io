@@ -1,10 +1,10 @@
 .social {
-  display: flex;
+  display: var(--displayHomeSocial);
   gap: 1.5rem;
   font-size: 1.6rem;
   list-style: none;
   i {
-    color: var(--sub-text-color);
+    color: var(--text-color);
     transition: fill 0.2s cubic-bezier(1, -0.01, 0, 1.11);
     &:hover {
       color: var(--primary-color);
@@ -15,6 +15,6 @@
 .line {
   margin-top: 1rem;
   width: 8rem;
-  border: 1px solid var(--sub-text-color);
+  border: 1px solid var(--text-color);
   border-radius: 5px;
 }

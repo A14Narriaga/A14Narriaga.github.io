@@ -9,11 +9,12 @@ import { getSessionItem, setSessionItem } from '../../utils';
 
 export default class ConfigurationService {
 
-  private currentHour = new Date().getHours();
+  // private currentHour = new Date().getHours();
   private session = {
     id: 'configuration',
     init: {
-      theme: this.currentHour >= 7 && this.currentHour <= 19 ? 'light' : 'dark',
+      // theme: this.currentHour >= 7 && this.currentHour <= 19 ? 'light' : 'dark',
+      theme: 'blue',
       language: 'es',
       soundIsPlaying: false
     }
@@ -25,18 +26,15 @@ export default class ConfigurationService {
   getTheme = () =>
     getSessionItem(this.session.id, this.session.init, 'theme')
 
-  setTheme = (theme: string) => theme === 'dark'
-    ? document.body.classList.add('dark')
-    : document.body.classList.remove('dark');
+  setTheme = (theme: string): string => {
+    const currentTheme = this.getTheme();
+    document.body.classList.remove(currentTheme);
+    setSessionItem(this.session.id, this.session.init, 'theme', theme);
+    document.body.classList.add(theme);
+    return theme;
+  }
 
   loadTheme = () => this.setTheme(this.getTheme());
-
-  toggleTheme(): string {
-    const newTheme = this.getTheme() === 'dark' ? 'light' : 'dark';
-    setSessionItem(this.session.id, this.session.init, 'theme', newTheme);
-    this.setTheme(newTheme);
-    return newTheme;
-  }
 
   getLanguage() {
     return getSessionItem(this.session.id, this.session.init, 'language')

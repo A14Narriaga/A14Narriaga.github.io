@@ -36,7 +36,7 @@ export class NavbarComponent implements OnInit {
   toggle = (key: string) => {
     switch (key) {
       case 'theme':
-        this.theme = this.service.toggleTheme(); break;
+        this.theme = this.service.setTheme('blue'); break;
       case 'language':
         this.language = this.service.toggleLanguage(); break;
       case 'sound':
