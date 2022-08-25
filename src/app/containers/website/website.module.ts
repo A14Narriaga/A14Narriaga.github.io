@@ -8,14 +8,14 @@ import { SkillsComponent } from './pages/skills/skills.component';
 import { CertificationsComponent } from './pages/certifications/certifications.component';
 import { ExperienceComponent } from './pages/experience/experience.component';
 import { CardExperienceComponent } from './components/card-experience/card-experience.component';
-import { IconsModule } from '../../common/icons/icons.module';
+import { IconsModule } from '../../shared/icons/icons.module';
 import { CardBlogComponent } from './components/card-blog/card-blog.component';
 import { CardProjectComponent } from './components/card-project/card-project.component';
 import { CardCertificationComponent } from './components/card-certification/card-certification.component';
 import { SkillComponent } from './components/skill/skill.component';
 import { SkillOrbitComponent } from './components/skill-orbit/skill-orbit.component';
-import { SocialComponent } from '../../common/components/social/social.component';
-import { AtomsModule } from '../../common/atoms/atoms.module';
+import { SocialComponent } from '../../shared/components/social/social.component';
+import { AtomsModule } from '../../shared/atoms/atoms.module';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,7 @@ import { AtomsModule } from '../../common/atoms/atoms.module';
     CommonModule,
     WebsiteRoutingModule,
     IconsModule,
-    AtomsModule
+    AtomsModule,
   ]
 })
 
